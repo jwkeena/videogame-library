@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "exampledb",
+    "password": "PASSWORD",
+    "database": "game_library",
     "host": "localhost",
     "dialect": "mysql"
   },

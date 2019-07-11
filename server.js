@@ -1,4 +1,7 @@
 require("dotenv").config();
+const {apiKey} = require("./config/config.js");
+console.log(apiKey);
+
 var express = require("express");
 var exphbs = require("express-handlebars");
 
