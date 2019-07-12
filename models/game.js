@@ -7,14 +7,14 @@ module.exports = function(sequelize, DataTypes) {
         len: [1, 144]
       }
     },
-    system: {
+    system_type: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [1, 50]
       }
     },
-    year: {
+    year_released: {
       type: DataTypes.INTEGER,
       allowNull: true,
       validate: {
