@@ -1,21 +1,26 @@
 {
   "development": {
-    "username": "root",
-    "password": "PASSWORD",
-    "database": "game_library",
-    "host": "localhost",
+    "username": "gt2gni0e891vv4u6",
+    "password": "rzmm2idwq9qp57ik",
+    "database": "w5237ubyvudjaqc0",
+    "host": "v02yrnuhptcod7dk.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "testdb",
-    "host": "localhost",
+    "username": "gt2gni0e891vv4u6",
+    "password": "rzmm2idwq9qp57ik",
+    "database": "w5237ubyvudjaqc0",
+    "host": "v02yrnuhptcod7dk.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql",
     "logging": false
   },
   "production": {
+    "username": "gt2gni0e891vv4u6",
+    "password": "rzmm2idwq9qp57ik",
+    "database": "w5237ubyvudjaqc0",
+    "host": "v02yrnuhptcod7dk.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "use_env_variable": "JAWSDB_URL",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "operatorsAliases": false
   }
 }

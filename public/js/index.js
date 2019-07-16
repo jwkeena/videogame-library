@@ -58,10 +58,14 @@ $("#add-to-database").on("click", function () {
   );
 });
 
-$("#library-button").on("click", function(data) {
-  $.ajax("/api/games", {
-    type: "GET"
-  }).then(
-    console.log(data)
-  )
-})
+$("#library-button").on("click", function() {
+
+  $.ajax({
+    url: "/api/games",
+    type: 'GET',
+    success: function(res) {
+        console.log(res);
+    }
+});
+
+});

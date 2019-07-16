@@ -1,5 +1,5 @@
 require("dotenv").config();
-const {apiKey} = require("./config/config.js");
+const {apiKey, jawsHost, jawsPassword, jawsUsername, jawsDatabase} = require("./config/config.js");
 
 var express = require("express");
 

@@ -4,8 +4,8 @@ module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
     db.Game.findAll({}).then(function(dbGames) {
-      res.json("welcome to the Virtual Backlog");
-      // res.sendFile(path.join(__dirname, "FILE.html"));
+      res.json(dbGames);
+      res.sendFile(path.join(__dirname, "index.html"));
       });
     });
 
