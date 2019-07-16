@@ -22,15 +22,15 @@ module.exports = function(sequelize, DataTypes) {
         len: [4]
       }
     },
-    isPhysical: {
+    is_physical: {
       type: DataTypes.BOOLEAN,
       allowNull: false
     },
-    isBeaten: {
+    is_beaten: {
       type: DataTypes.BOOLEAN,
       allowNull: true
     },
-    personalRating: {
+    personal_rating: {
       type: DataTypes.DECIMAL(2,1),
       allowNull: true,
       validate: {
@@ -40,6 +40,22 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     notes: {
+      type: DataTypes.TEXT,
+      allowNull: true
+    }, 
+    api_url: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    giant_bomb_ID: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    box_art: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    description: {
       type: DataTypes.TEXT,
       allowNull: true
     }

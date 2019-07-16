@@ -1,99 +1,67 @@
 // Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
-var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
+let newGame = {};
 
-// The API object contains methods for each kind of request we'll make
-var API = {
-  saveExample: function(example) {
-    return $.ajax({
-      headers: {
-        "Content-Type": "application/json"
-      },
-      type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
-    });
-  },
-  getExamples: function() {
-    return $.ajax({
-      url: "api/examples",
-      type: "GET"
-    });
-  },
-  deleteExample: function(id) {
-    return $.ajax({
-      url: "api/examples/" + id,
-      type: "DELETE"
-    });
-  }
-};
+$("#search-button").on("click", function () {
+  let searchTerms = $("#search").val();
+  console.log(searchTerms)
 
-// refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
-      var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
+  let giantBombURL = "https://cors-anywhere.herokuapp.com/https://www.giantbomb.com/api/search?api_key=0f5a567565f80ed0d9a43e0862315a17c315dc22&format=json&query=" + searchTerms + "&resources=game&limit=10"
+  $.ajax({
+    url: giantBombURL,
+    method: "GET"
+  }).then(function (response) {
+    console.log(response.results[0]);
 
-      var $li = $("<li>")
-        .attr({
-          class: "list-group-item",
-          "data-id": example.id
-        })
-        .append($a);
+    // Restricting search to first result
+    let res = response.results[0];
 
-      var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
+    // Grabbing info from GB API to show user
+    let title = res.name;
+    let system_type = res.platforms[0].name;
+    let year_released = res.expected_release_year;
 
-      $li.append($button);
+    // Grabbing info from GB API to store tacitly in database
+    let api_url = res.api_detail_url;
+    let giant_bomb_ID = res.guid;
+    let box_art = res.image.medium_url;
+    let description = res.deck;
 
-      return $li;
-    });
+    // Putting in some necessary defaults
+    let is_physical = true;
+    let is_beaten = true;
 
-    $exampleList.empty();
-    $exampleList.append($examples);
+    newGame = {
+      title,
+      system_type,
+      year_released,
+      is_physical,
+      is_beaten,
+      api_url,
+      giant_bomb_ID,
+      box_art,
+      description
+    };
+
+    console.log(newGame);
+    $("#results").text(JSON.stringify(newGame, null, 2));
   });
-};
+});
 
-// handleFormSubmit is called whenever we submit a new example
-// Save the new example to the db and refresh the list
-var handleFormSubmit = function(event) {
-  event.preventDefault();
+$("#add-to-database").on("click", function () {
+  $.ajax("/api/games", {
+    type: "POST",
+    data: newGame
+  }).then(
+    function () {
+      console.log("New game sent to database");
+    }
+  );
+});
 
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
-  };
-
-  if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
-    return;
-  }
-
-  API.saveExample(example).then(function() {
-    refreshExamples();
-  });
-
-  $exampleText.val("");
-  $exampleDescription.val("");
-};
-
-// handleDeleteBtnClick is called when an example's delete button is clicked
-// Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function() {
-  var idToDelete = $(this)
-    .parent()
-    .attr("data-id");
-
-  API.deleteExample(idToDelete).then(function() {
-    refreshExamples();
-  });
-};
-
-// Add event listeners to the submit and delete buttons
-$submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+$("#library-button").on("click", function(data) {
+  $.ajax("/api/games", {
+    type: "GET"
+  }).then(
+    console.log(data)
+  )
+})

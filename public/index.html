@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Virtual Backlog</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- jQuery link -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="./styles/styles.css">
+</head>
+
+<body>
+
+    <h1>Virtual Backlog</h1>
+    <textarea id="search" default="Mario Odyssey"></textarea>
+    <br><br>
+    <button id="search-button">Search</button>
+
+    <h3>Top Search Result</h3>
+    <div id="results"></div>
+
+    <br>
+    
+    <button id="add-to-database">Add game to database</button>
+    <p>Note that this will only work when the app is deployed online.</p>
+
+    <br>
+    <br>
+
+    <button id="library-button">Print database to console</button>
+    <p>Again, this will only work when the app is deployed online, to circumvent CORS.</p>
+
+    <script src="./js/index.js" async defer></script>
+</body>
+
+</html>
