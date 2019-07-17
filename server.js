@@ -17,8 +17,6 @@ app.use(express.static("public"));
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
-const routes = require("./controllers/games_controllers");
-
 app.use(routes);
 
 let syncOptions = { force: false };
