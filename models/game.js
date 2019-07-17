@@ -49,6 +49,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     giant_bomb_ID: {
       type: DataTypes.STRING,
+      primaryKey: true,
       allowNull: false
     },
     box_art: {

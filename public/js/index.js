@@ -111,7 +111,7 @@ $("#library-button").on("click", function () {
 
       for (let i = 0; i < res.length; i++) {
         let p = $("<p>");
-        p.attr("data-api-url", res[i].giant_bomb_ID);
+        p.attr("data-giant-bomb-id", res[i].giant_bomb_ID);
         p.text(JSON.stringify(res[i], null, 2));
         p.addClass("delete")
         $("#database-display").append(p);
