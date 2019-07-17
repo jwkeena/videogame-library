@@ -120,7 +120,7 @@ $("#library-button").on("click", function () {
     }
   });
 
-  $("p").on("click", ".delete", function () {
+  $(document.body).on("click", ".delete", function () {
 
     let id = $(this).attr("data-giant-bomb-id");
     $.ajax({
