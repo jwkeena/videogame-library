@@ -29,7 +29,7 @@ module.exports = function(app) {
 
   // Delete a game
   app.delete("/api/games/:id", function(req, res) {
-    db.Game.destroy({ where: { id: req.params.id } }).then(function(dbGame) {
+    db.Game.destroy({ where: { giant_bomb_ID: req.params.id } }).then(function(dbGame) {
       res.json(dbGame);
     });
   });

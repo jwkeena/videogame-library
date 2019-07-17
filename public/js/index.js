@@ -102,12 +102,34 @@ $(document.body).on("click", ".newgame", function () {
 
 $("#library-button").on("click", function () {
 
+  $("#database-display").empty();
+
   $.ajax({
     url: "/api/games",
     type: 'GET',
     success: function (res) {
+
+      for (let i = 0; i < res.length; i++) {
+        let p = $("<p>");
+        p.attr("data-api-url", res.giant_bomb_ID);
+        p.text(JSON.stringify(res[i], null, 2));
+        p.addClass("delete")
+        $("#database-display");
+      }
       console.log(res);
     }
   });
+
+  $("p").on("click", ".delete", function () {
+
+    let id = $(this).attr("data-giant-bomb-id");
+    $.ajax({
+      url: "/api/games/" + id,
+      type: 'DELETE',
+      success: function (res) {
+        console.log("Game deleted from database")
+      }
+    })
+  })
 
 });
