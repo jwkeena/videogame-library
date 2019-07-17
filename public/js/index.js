@@ -44,7 +44,6 @@ $("#search-button").on("click", function () {
         description
       };
 
-      console.log(newGame);
       let p = $("<p>");
       p.attr("data-api-url", api_url);
       p.text(JSON.stringify(newGame, null, 2));
@@ -65,7 +64,7 @@ $(document.body).on("click", ".newgame", function () {
 
     let res = response.results;
     let title = res.name;
-    let system_type = res.platforms;
+    let system_type = res.platforms[0].name; // Restricts platform to first option
     let year_released = res.expected_release_year;
     let api_url = res.api_detail_url;
     let giant_bomb_ID = res.guid;
@@ -85,6 +84,8 @@ $(document.body).on("click", ".newgame", function () {
       box_art,
       description
     };
+
+    console.log(newGame);
 
     $.ajax("/api/games", {
       type: "POST",

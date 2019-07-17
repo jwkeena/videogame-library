@@ -10,7 +10,6 @@ module.exports = function(app) {
 
   // Add new game
   app.post("/api/games", function(req, res) {
-      console.log("New game being added to database: ", req.body.title)
       db.Game.create({
         title: req.body.title,
         system_type: req.body.system_type,
