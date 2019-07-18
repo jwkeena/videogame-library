@@ -11,7 +11,7 @@ var Games = (function() {
 		$games = $( '#bk-list > li > div.bk-game' ), gamesCount = $games.length, currentgame = -1,counter = 0; 
 	
 	function init() {
-
+		console.log("applying 3D!")
 		$games.each( function( i ) {
 			
 			var $game = $( this ),
