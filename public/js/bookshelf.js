@@ -365,12 +365,12 @@ for (var i = 0; i < games.length; i++){
     
     $(front).append(`<div class="bk-cover-back"></div>`);
     
-    cover = $(`<div class="bk-cover" style = "background: url(`+games[i].box_art+`) >`)
+    cover = $(`<div class="bk-cover" style = "background: url(`+games[i].box_art+`)" >`)
     $(cover).append('<h2> <span>' + games[i].title + '</span><span>'+ games[i].system_type +'</span></h2></div></div>');
     $(front).append(cover);
     
     page = $(`<div class="bk-page">`)
-    $(page).append('<div class="bk-content bk-content-current style = "background: url ('+games[i].box_art +')"></div>')
+    $(page).append('<div class="bk-content bk-content-current" style = "background: url ('+games[i].box_art +')"></div>')
     $(page).append('<div class="bk-content"><p>' + games[i].description + '</p></div>')
     $(page).append('<div class="bk-content "><p>Physical Copy: ' + games[i].is_Physical + "</p><p> Beat the Game? " + games[i].is_beaten + "</p><p>Personal Rating: " + games[i].personal_rating + '/10 </p></div>')
     $(page).append('<div class="bk-content "><p>' + games[i].notes + '</p></div></div>')
