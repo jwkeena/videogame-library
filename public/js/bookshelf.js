@@ -366,7 +366,7 @@ for (var i = 0; i < games.length; i++){
     $(front).append(`<div class="bk-cover-back"></div>`);
     
     cover = $(`<div class="bk-cover" style = "background: url(`+games[i].box_art+`) >`)
-    $(cover).append('<h2> <span>' + games[i].Title + '</span><span>'+ games[i].System_type +'</span></h2></div></div>');
+    $(cover).append('<h2> <span>' + games[i].title + '</span><span>'+ games[i].system_type +'</span></h2></div></div>');
     $(front).append(cover);
     
     page = $(`<div class="bk-page">`)
@@ -379,7 +379,7 @@ for (var i = 0; i < games.length; i++){
     $(back).append('</p>' + games[i].Title + " " + games[i].description +" "+ games[i].giant_bomb_ID + '</p></div>')
 
     right = (`<div class="bk-right"></div>`);
-    left = (`<div class="bk-left"><h2><span>` + games[i].Title + '  </span><span>'+ games[i].System_type +`</span></h2>`);
+    left = (`<div class="bk-left"><h2><span>` + games[i].title + '  </span><span>'+ games[i].system_type +`</span></h2>`);
     topa = (`<div class="bk-top"></div>`);
     bottom = (`<div class="bk-bottom"></div>`);
 
