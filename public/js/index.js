@@ -2,15 +2,9 @@ function giantBombApiCall(gameName) {
 
   return new Promise(resolve => {
     let giantBombURL;
-    let searchTerms = $("#search").val();
 
-    if (gameName) {
-      console.log("game to be searched from barcode scan: " + gameName);
-      giantBombURL = "https://cors-anywhere.herokuapp.com/https://www.giantbomb.com/api/search?api_key=0f5a567565f80ed0d9a43e0862315a17c315dc22&format=json&query=" + gameName + "&resources=game&limit=5"
-    } else {
-      console.log("game to be searched from text input: " + searchTerms);
-      giantBombURL = "https://cors-anywhere.herokuapp.com/https://www.giantbomb.com/api/search?api_key=0f5a567565f80ed0d9a43e0862315a17c315dc22&format=json&query=" + searchTerms + "&resources=game&limit=5"
-    }
+    console.log("game to be searched: " + gameName);
+    giantBombURL = "https://cors-anywhere.herokuapp.com/https://www.giantbomb.com/api/search?api_key=0f5a567565f80ed0d9a43e0862315a17c315dc22&format=json&query=" + gameName + "&resources=game&limit=5"
 
     $.ajax({
       url: giantBombURL,
@@ -60,8 +54,12 @@ function giantBombApiCall(gameName) {
       }
     });
   })
-
 }
+
+$("#search-button").on("click", function () {
+  let gameName = $("#search").val().trim();
+  giantBombApiCall(gameName);
+})
 
 // Validates numbers entered into barcode scanner
 function isNumber(evt) {
@@ -118,7 +116,6 @@ async function asyncTest(barcode) {
   const response = await searchBarcodeApi(barcode);
   gameName = response.items[0].title;
   giantBombApiCall(gameName);
-  // ACO: 887256035990, TE: 0711719526780, SMS: 0045496960346
 }
 
 $(function () {
