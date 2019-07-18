@@ -24,13 +24,13 @@ var Games = (function() {
 				counter = 0;
 			}
 
-			if( counter < gamesCount / 2 ) {
-				$parent.css( 'z-index', counter ).data( 'stackval', counter );
+			if( i < gamesCount / 2 ) {
+				$parent.css( 'z-index', i ).data( 'stackval', i );
 				counter ++;
 			
 			}
 			else {
-				$parent.css( 'z-index', gamesCount - 1 - counter ).data( 'stackval', gamesCount - 1 - counter );
+				$parent.css( 'z-index', gamesCount - 1 - i ).data( 'stackval', gamesCount - 1 - i );
 				counter ++;	
 			}
 
