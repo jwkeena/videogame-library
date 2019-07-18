@@ -5,7 +5,7 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     db.Game.findAll({}).then(function(dbGames) {
       res.json(dbGames);
-      res.sendFile(path.join(__dirname, "index.html"));
+      res.sendFile(path.join(__dirname, "bookshelf.html"));
       });
     });
 
