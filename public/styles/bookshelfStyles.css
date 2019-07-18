@@ -15,7 +15,7 @@
 	height: 400px;
 	float: left;
 	z-index: 1;
-	margin: 0px 0px 0px 1px;
+	margin: 0px 0px 50px 1px;
 	-webkit-transform-style: preserve-3d;
 	transform-style: preserve-3d;
 }
@@ -283,7 +283,7 @@
 	background-repeat: no-repeat;
 	background-size: 100%;
 	/* background-position: 10px 40px; */
-}
+/* } */
 
 /* .game0 .bk-cover h2 {
 	position: absolute;
