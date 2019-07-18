@@ -1,3 +1,4 @@
+let newGame;
 function giantBombApiCall(gameName) {
 
   return new Promise(resolve => {
