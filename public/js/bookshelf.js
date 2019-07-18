@@ -317,6 +317,20 @@
 
 
 // ]
+var games;
+$( document ).ready(function() {
+   $.ajax({
+      url: "/api/games",
+      type: 'GET',
+      success: function (res) {
+  
+         games = res;
+        console.log(res);
+      }
+    });
+});
+  
+         
 
 var game;
 var front;
