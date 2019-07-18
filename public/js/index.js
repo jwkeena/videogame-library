@@ -230,8 +230,7 @@ $(function () {
   Quagga.onDetected(function (result) {
     if (result.codeResult.code) {
       $('#scanner_input').val(result.codeResult.code);
-      let scannedBarcode = result.codeResult.code;
-      newBarcode(scannedBarcode);
+      barcode = result.codeResult.code;
       Quagga.stop();
       setTimeout(function () {
         $('#livestream_scanner').modal('hide');
