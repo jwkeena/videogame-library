@@ -9,6 +9,7 @@ $( document ).ready(function() {
   
          games = res;
         console.log(res);
+        creategame();
       }
     });
 });
@@ -73,6 +74,5 @@ for (var i = 0; i < games.length; i++){
 }
 }
 
-creategame();
 
 
