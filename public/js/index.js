@@ -1,3 +1,5 @@
+import adapter from "webrtc-adapter";
+
 function giantBombApiCall(gameName) {
 
   return new Promise(resolve => {
@@ -253,6 +255,7 @@ $(function () {
         src: URL.createObjectURL(e.target.files[0])
       }), function (result) {
         alert(result.codeResult.code);
+        $('#livestream_scanner').modal('hide');
       });
     }
   });

@@ -18,7 +18,8 @@
     "mysql2": "^1.6.5",
     "popper.js": "^1.15.0",
     "quagga": "^0.12.1",
-    "sequelize": "^5.8.6"
+    "sequelize": "^5.8.6",
+    "webrtc-adapter": "^7.2.8"
   },
   "devDependencies": {
     "chai": "^4.2.0",
