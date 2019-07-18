@@ -1,5 +1,3 @@
-import adapter from "webrtc-adapter";
-
 function giantBombApiCall(gameName) {
 
   return new Promise(resolve => {
@@ -13,35 +11,35 @@ function giantBombApiCall(gameName) {
       console.log("game to be searched from text input: " + searchTerms);
       giantBombURL = "https://cors-anywhere.herokuapp.com/https://www.giantbomb.com/api/search?api_key=0f5a567565f80ed0d9a43e0862315a17c315dc22&format=json&query=" + searchTerms + "&resources=game&limit=5"
     }
-  
+
     $.ajax({
       url: giantBombURL,
       method: "GET"
     }).then(function (response) {
       console.log(response.results);
-  
+
       resolve(response.results);
 
       for (let i = 0; i < response.results.length; i++) {
-  
+
         // Restricting search to first result
         let res = response.results[i];
-  
+
         // Grabbing info from GB API to show user
         let title = res.name;
         let system_type = res.platforms;
         let year_released = res.expected_release_year;
-  
+
         // Grabbing info from GB API to store tacitly in database
         let api_url = res.api_detail_url;
         let giant_bomb_ID = res.guid;
         let box_art = res.image.medium_url;
         let description = res.deck;
-  
+
         // Putting in some necessary defaults
         let is_physical = true;
         let is_beaten = false;
-  
+
         newGame = {
           title,
           system_type,
@@ -53,7 +51,7 @@ function giantBombApiCall(gameName) {
           box_art,
           description
         };
-  
+
         let p = $("<p>");
         p.attr("data-api-url", api_url);
         p.text(JSON.stringify(newGame, null, 2));
@@ -69,7 +67,7 @@ function giantBombApiCall(gameName) {
 function isNumber(evt) {
   var iKeyCode = (evt.which) ? evt.which : evt.keyCode
   if (iKeyCode != 46 && iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57))
-      return false;
+    return false;
 
   return true;
 };
@@ -78,7 +76,7 @@ function isNumber(evt) {
 let barcode;
 $("#scanner_input").on("keyup", function () {
   let number = $(this).val();
-  
+
   if (number.length < 10) {
     console.log("input isn't long enough to be a barcode");
     barcode = undefined;
@@ -93,7 +91,7 @@ $("#scanner_input").on("keyup", function () {
   }
 });
 
-$("#search-barcode").on("click", function() {
+$("#search-barcode").on("click", function () {
   if (!barcode) {
     console.log("there is no barcode to search")
   } else {
@@ -114,13 +112,13 @@ function searchBarcodeApi(barcode) {
     });
   });
 };
- 
+
 
 async function asyncTest(barcode) {
   const response = await searchBarcodeApi(barcode);
   gameName = response.items[0].title;
   giantBombApiCall(gameName);
-   // ACO: 887256035990, TE: 0711719526780, SMS: 0045496960346
+  // ACO: 887256035990, TE: 0711719526780, SMS: 0045496960346
 }
 
 $(function () {
