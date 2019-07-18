@@ -104,4 +104,4 @@ var Games = (function() {
 
 })();
 
-init();
+Games.init();
