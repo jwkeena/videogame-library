@@ -376,7 +376,7 @@ for (var i = 0; i < games.length; i++){
     $(page).append('<div class="bk-content "><p>' + games[i].notes + '</p></div></div>')
     
     back = $(`<div class="bk-back">`)
-    $(back).append('</p>' + games[i].Title + " " + games[i].description +" "+ games[i].giant_bomb_ID + '</p></div>')
+    $(back).append('<p>' + games[i].title + "</p><p> " + games[i].description +"</p><p> "+ games[i].giant_bomb_ID + '</p></div>')
 
     right = (`<div class="bk-right"></div>`);
     left = (`<div class="bk-left"><h2><span>` + games[i].title + '  </span><span>'+ games[i].system_type +`</span></h2>`);

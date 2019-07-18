@@ -103,3 +103,5 @@ var Games = (function() {
 	return { init : init };
 
 })();
+
+init();
