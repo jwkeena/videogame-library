@@ -1,5 +1,5 @@
 var Games = (function() {
-
+	console.log("Init Me")
 	var transEndEventNames = {
 			'WebkitTransition' : 'webkitTransitionEnd',
 			'MozTransition' : 'transitionend',
@@ -103,3 +103,5 @@ var Games = (function() {
 	return { init : init };
 
 })();
+
+// Games.init();
