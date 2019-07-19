@@ -1,4 +1,4 @@
-var Dames = (function() {
+var Games = (function() {
 	console.log("Init Me")
 	var transEndEventNames = {
 			'WebkitTransition' : 'webkitTransitionEnd',

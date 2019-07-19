@@ -373,11 +373,7 @@ for (var i = 0; i < games.length; i++){
     $("#bk-list").append("<div class=shelf></div>");
        counter = 0;
    }
-   if(i===(games.length-1)){
-   $.getScript("bookselect.js",function(){
-       Dames.init()
-       });
-   }
+   
 }
 
     
@@ -408,7 +404,7 @@ addGames();
 
 
 // console.log(games)
-// creategame()
+creategame()
 
 
 
