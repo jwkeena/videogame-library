@@ -401,7 +401,7 @@ async function addGames() {
 
 
 addGames()
-.then($.getScript("bookselect.js",function(){ setTimeout(Games.init()),5000}));
+.then($.getScript("bookselect.js",function(){ setTimeout(Games.init()),10000}));
 
 
 // console.log(games)
