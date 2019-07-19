@@ -16,56 +16,61 @@ function giantBombApiCall(gameName) {
       printResultsInTestDiv(response);
       resolve(response.results);
     });
-  })
-}
+  });
+};
+
+$("#main-search-button").on("click", function () {
+  let gameName = $("#search").val().trim();
+  giantBombApiCall(gameName);
+})
 
 function printResultsInTestDiv(response) {
   $("#results").empty();
   let newGame = {};
-      for (let i = 0; i < response.results.length; i++) {
+  for (let i = 0; i < response.results.length; i++) {
 
-        // Restricting search to first result
-        let res = response.results[i];
+    // Restricting search to first result
+    let res = response.results[i];
 
-        // Grabbing info from GB API to show user
-        let title = res.name;
-        let system_type = res.platforms;
-        let year_released = res.expected_release_year;
+    // Grabbing info from GB API to show user
+    let title = res.name;
+    let system_type = res.platforms;
+    let year_released = res.expected_release_year;
 
-        // Grabbing info from GB API to store tacitly in database
-        let api_url = res.api_detail_url;
-        let giant_bomb_ID = res.guid;
-        let box_art = res.image.medium_url;
-        let description = res.deck;
+    // Grabbing info from GB API to store tacitly in database
+    let api_url = res.api_detail_url;
+    let giant_bomb_ID = res.guid;
+    let box_art = res.image.medium_url;
+    let description = res.deck;
 
-        // Putting in some necessary defaults
-        let is_physical = true;
-        let is_beaten = false;
+    // Putting in some necessary defaults
+    let is_physical = true;
+    let is_beaten = false;
 
-        newGame = {
-          title,
-          system_type,
-          year_released,
-          is_physical,
-          is_beaten,
-          api_url,
-          giant_bomb_ID,
-          box_art,
-          description
-        };
+    newGame = {
+      title,
+      system_type,
+      year_released,
+      is_physical,
+      is_beaten,
+      api_url,
+      giant_bomb_ID,
+      box_art,
+      description
+    };
 
-        let p = $("<p>");
-        p.attr("data-api-url", api_url);
-        p.text(JSON.stringify(newGame, null, 2));
-        p.addClass("newgame");
-        $("#results").append(p);
-      }
-}
+    let p = $("<p>");
+    p.attr("data-api-url", api_url);
+    p.text(JSON.stringify(newGame, null, 2));
+    p.addClass("newgame");
+    $("#results").append(p);
+  };
+};
 
-$("#search-button").on("click", function () {
+$("#test-search-button").on("click", function () {
   let gameName = $("#search").val().trim();
   giantBombApiCall(gameName);
-})
+});
 
 // Validates numbers entered into barcode scanner
 function isNumber(evt) {

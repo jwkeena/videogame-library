@@ -42,8 +42,8 @@
 <body>
 
     <style>
-        
-        </style>
+
+    </style>
 
     <div class="container">
 
@@ -94,8 +94,8 @@
                                 <button class="btn btn-default" type="button" data-toggle="modal"
                                     data-target="#livestream_scanner"><i class="fa fa-barcode"></i></button>
 
-                                <input id="scanner_input" style="font-size: 10px;" onkeypress="javascript:return isNumber(event)"
-                                    class="form-control"
+                                <input id="scanner_input" style="font-size: 10px;"
+                                    onkeypress="javascript:return isNumber(event)" class="form-control"
                                     placeholder="&lt;-- click to scan, then search -->" type="text" />
                                 <span class="input-group-btn"></span>
 
@@ -115,8 +115,8 @@
                             <div class="card">
                                 <div class="card-body" style="font-family: Consolas,monaco,monospace; font-size: 14px;">
                                     <input type="text" id="search">
-                                    <button id="search-button">Search</button>
-                                    <div id="results" >Click a result to add it to the database.</div>
+                                    <button id="test-search-button">Search</button>
+                                    <div id="results">Click a result to add it to the database.</div>
                                 </div>
                             </div>
 
@@ -154,14 +154,126 @@
             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
-                    <div class="modal-header" >
-                        <h5 class="modal-title"style="font-size: 12px" id="exampleModalLongTitle">Add a game</h5>
+                    <div class="modal-header">
+                        <h5 class="modal-title" style="font-size: 12px" id="exampleModalLongTitle">Add a game</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body" style="font-size: 12px">
-                        MODAL STUFF!
+
+                            <input type="text" id="title" name="title" placeholder="Title">
+                            <button id="main-search" class="btn btn-default" type="button"><i
+                                class="fa fa-search" style="position: relative; top: -5px;"></i></button>
+                        <br>
+                        <hr>
+                        Media type:
+                        <label class="radio-inline"><input type="radio" name="optradio" checked>Physical</label>
+                        <label class="radio-inline"><input type="radio" name="optradio">Digital</label>
+                        <hr>
+                        <label for="Yes_No">Have you beaten the game?</label>
+                        <fieldset>
+                            <p class="onoff"><input type="checkbox" value="1" id="checkboxID"><label
+                                    for="checkboxID"></label>
+                            </p>
+
+                        </fieldset>
+                        <hr>
+
+                        <textarea id="notes" name="subject" rows="3" style="width: 100%;" placeholder="Additional notes"
+                            style="height:200px"></textarea>
+
+                        <hr>
+
+                        <label for="rating">Personal Score</label>
+                        <div class="rating" style="position: relative; top: -10px;">
+                            <label id="label">
+                                <input type="radio" class="personal-rating" name="stars" value="1" />
+                                <span class="icon">★</span>
+                            </label>
+                            <label id="label">
+                                <input type="radio" class="personal-rating" name="stars" value="2" />
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                            </label>
+                            <label id="label">
+                                <input type="radio" class="personal-rating" name="stars" value="3" />
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                            </label>
+                            <label id="label">
+                                <input type="radio" class="personal-rating" name="stars" value="4" />
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                            </label>
+                            <label id="label">
+                                <input type="radio" class="personal-rating" name="stars" value="5" />
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                            </label>
+                            <label id="label">
+                                <input type="radio" class="personal-rating" name="stars" value="6" />
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                            </label>
+                            <label id="label">
+                                <input type="radio" class="personal-rating" name="stars" value="7" />
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                            </label>
+                            <label id="label">
+                                <input type="radio" class="personal-rating" name="stars" value="8" />
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                            </label>
+                            <label id="label">
+                                <input type="radio" class="personal-rating" name="stars" value="9" />
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                            </label>
+                            <label id="label">
+                                <input type="radio" class="personal-rating" name="stars" value="10" />
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                            </label>
+                        </div>
+
                     </div>
                     <div class="modal-footer" style="font-size: 12px">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -186,19 +298,22 @@
                     </div>
 
                     <div class="container">
-                        <p class="text-center" style="font-size: 10px;">Scanner not working? Try brighter lighting, or upload a picture instead:
+                        <p class="text-center" style="font-size: 10px;">Scanner not working? Try brighter lighting, or
+                            upload a picture instead:
                         </p>
 
                         <div class="row">
                             <div class="col-md-2"></div>
                             <div class="col-md-4">
-                                <input type="file" style="font-size: 10px;" accept="image/*;capture=camera" capture="camera" class="hidden" />
+                                <input type="file" style="font-size: 10px;" accept="image/*;capture=camera"
+                                    capture="camera" class="hidden" />
                             </div>
                         </div>
                     </div>
 
                     <br>
-                    <button type="button" style="font-size: 10px;" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    <button type="button" style="font-size: 10px;" class="btn btn-primary"
+                        data-dismiss="modal">Close</button>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->

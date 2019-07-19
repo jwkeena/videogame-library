@@ -14,7 +14,9 @@ h1 {
 	font-size: 25px !important;
 }
 
-.nav-pills, .tab-content, .main {
+.nav-pills,
+.tab-content,
+.main {
 	font-size: 10px !important;
 }
 
@@ -32,7 +34,9 @@ h1 {
 	font-style: normal;
 } */
 
-html { height: 100%; }
+html {
+	height: 100%;
+}
 
 *,
 *:after,
@@ -47,27 +51,28 @@ html { height: 100%; }
 /* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
 .clearfix:before,
 .clearfix:after {
-    content: " ";
-    display: table;
+	content: " ";
+	display: table;
 }
 
 .clearfix:after {
-    clear: both;
+	clear: both;
 }
 
 .clearfix {
-    *zoom: 1;
+	*zoom: 1;
 }
 
 body {
-    font-family: 'Lato', Calibri, Arial, sans-serif;
-    background: #f6f6f6;
-    font-weight: 400;
-    font-size: 15px;
-    color: #333;
-    overflow: scroll;
-    overflow-x: hidden;
+	font-family: 'Lato', Calibri, Arial, sans-serif;
+	background: #f6f6f6;
+	font-weight: 400;
+	font-size: 15px;
+	color: #333;
+	overflow: scroll;
+	overflow-x: hidden;
 }
+
 /* 
 .demo-2 body {
 	background: url(../images/wood.jpg);
@@ -84,7 +89,7 @@ a {
 }
 
 .main,
-.container > header {
+.container>header {
 	width: 90%;
 	max-width: 1060px;
 	margin: 0 auto;
@@ -92,11 +97,11 @@ a {
 	padding: 0 30px 50px 30px;
 }
 
-.container > header {
+.container>header {
 	padding: 30px 30px 40px 30px;
 }
 
-.container > header h1 {
+.container>header h1 {
 	font-size: 34px;
 	line-height: 38px;
 	margin: 0;
@@ -114,7 +119,7 @@ a {
 	text-transform: uppercase;
 	z-index: 9999;
 	position: relative;
-	box-shadow: 1px 0px 2px rgba(0,0,0,0.2);
+	box-shadow: 1px 0px 2px rgba(0, 0, 0, 0.2);
 }
 
 .codrops-top a {
@@ -125,7 +130,7 @@ a {
 }
 
 .codrops-top a:hover {
-	background: rgba(255,255,255,0.8);
+	background: rgba(255, 255, 255, 0.8);
 	color: #000;
 }
 
@@ -144,12 +149,12 @@ a {
 }
 
 .codrops-demos a {
-    display: inline-block;
-    margin: 10px;
-    color: #666;
-    font-weight: 700;
-    line-height: 30px;
-    border-bottom: 4px solid transparent;
+	display: inline-block;
+	margin: 10px;
+	color: #666;
+	font-weight: 700;
+	line-height: 30px;
+	border-bottom: 4px solid transparent;
 }
 
 .codrops-demos a:hover {
@@ -186,22 +191,235 @@ a {
 
 /* Barcode scanner */
 #interactive.viewport {
-    position: relative;
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-    text-align: center;
+	position: relative;
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+	text-align: center;
 }
 
 #interactive.viewport>canvas,
 #interactive.viewport>video {
-    max-width: 100%;
-    width: 100%;
+	max-width: 100%;
+	width: 100%;
 }
 
 canvas.drawing,
 canvas.drawingBuffer {
-    position: absolute;
-    left: 0;
-    top: 0;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/* Yes Or NO  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+
+.onoff {
+	margin-left: 8px;
+	display: -moz-inline-stack;
+	display: inline-block;
+	vertical-align: middle;
+	*vertical-align: auto;
+	zoom: 1;
+	*display: inline;
+	position: relative;
+	cursor: pointer;
+	width: 55px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.onoff label {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	background: #cd3c3c;
+	border-radius: 5px;
+	font-weight: bold;
+	color: #FFF;
+	-webkit-transition: background 0.3s, text-indent 0.3s;
+	-moz-transition: background 0.3s, text-indent 0.3s;
+	-o-transition: background 0.3s, text-indent 0.3s;
+	transition: background 0.3s, text-indent 0.3s;
+	text-indent: 27px;
+	-webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4) inset;
+	-moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4) inset;
+	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4) inset;
+}
+
+.onoff label:after {
+	content: 'NO';
+	display: block;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	font-size: 12px;
+	color: #591717;
+	text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.35);
+	z-index: 1;
+}
+
+.onoff label:before {
+	content: '';
+	width: 15px;
+	height: 24px;
+	border-radius: 3px;
+	background: #FFF;
+	position: absolute;
+	z-index: 2;
+	top: 3px;
+	left: 3px;
+	display: block;
+	-webkit-transition: left 0.3s;
+	-moz-transition: left 0.3s;
+	-o-transition: left 0.3s;
+	transition: left 0.3s;
+	-webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+	-moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+}
+
+.onoff input:checked+label {
+	background: #378b2c;
+	text-indent: 8px;
+}
+
+.onoff input:checked+label:after {
+	content: 'YES';
+	color: #091707;
+}
+
+.onoff input:checked+label:before {
+	left: 37px;
+}
+
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/* Star Rating  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+.rating {
+	display: flex;
+	font-size: 50px;
+	position: relative;
+}
+
+.rating label {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	cursor: pointer;
+}
+
+.rating label:last-child {
+	position: static;
+}
+
+.rating label:nth-child(1) {
+	z-index: 10;
+}
+
+.rating label:nth-child(2) {
+	z-index: 9;
+}
+
+.rating label:nth-child(3) {
+	z-index: 8;
+}
+
+.rating label:nth-child(4) {
+	z-index: 7;
+}
+
+.rating label:nth-child(5) {
+	z-index: 6;
+}
+
+.rating label:nth-child(6) {
+	z-index: 5;
+}
+
+.rating label:nth-child(7) {
+	z-index: 4;
+}
+
+.rating label:nth-child(8) {
+	z-index: 3;
+}
+
+.rating label:nth-child(9) {
+	z-index: 2;
+}
+
+.rating label:nth-child(10) {
+	z-index: 1;
+}
+
+
+.rating label input {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+}
+
+.rating label .icon {
+	float: left;
+	color: transparent;
+}
+
+.rating label:last-child .icon {
+	color: #000;
+}
+
+.rating:not(:hover) label input:checked~.icon,
+.rating:hover label:hover input~.icon {
+	color: #09f;
+}
+
+.rating label input:focus:not(:checked)~.icon:last-child {
+	color: #000;
+	text-shadow: 0 0 5px #09f;
 }
