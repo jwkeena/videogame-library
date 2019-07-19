@@ -1,3 +1,5 @@
+
+
 var Games = (function() {
 	console.log("Init Me")
 	var transEndEventNames = {
@@ -16,7 +18,6 @@ var Games = (function() {
 		$games.each( function( i ) 
 		// for(i=0;i<4;i++)
 		{
-			
 			console.log("Made it")
 			var $game = $( this ),
 				$other = $games.not( $game ),
