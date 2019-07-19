@@ -13,9 +13,7 @@ var Games = (function() {
 	function init() {
 		console.log("applying 3D!")
 		console.log($games)
-		// $games.each( function( i )
-		for (i=0;i<$games.length;i++)
-		 {
+		$games.each( function( i ) {
 			
 			var $game = $( this ),
 				$other = $games.not( $game ),
