@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "DRB4oreo",
+    "password": "password",
     "database": "game_library",
     "host": "localhost",
     "dialect": "mysql"
