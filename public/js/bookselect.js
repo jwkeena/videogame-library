@@ -28,7 +28,7 @@ var Games = (function() {
 				counter = 0;
 			}
 			// console.log(gamesCount)
-			if( i < gamesCount / 2 ) {
+			if( counter < gamesCount / 2 ) {
 				// console.log("Z-index!")
 				$parent.css( 'z-index', counter).attr( 'data-stackval', counter );
 				counter ++;
