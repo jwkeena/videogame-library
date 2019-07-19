@@ -326,8 +326,9 @@ function addGames() {
         games.push(newgame);
       }
       }
-    });
+    
 });
+}
   
          
 
