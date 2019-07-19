@@ -374,6 +374,9 @@ for (var i = 0; i < games.length; i++){
        counter = 0;
    }
 }
+$.getscript("./bookselect.js",function(){
+    Games.init()
+    });
 }
 
 
