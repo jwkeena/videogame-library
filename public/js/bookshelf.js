@@ -393,7 +393,7 @@ for (var i = 0; i < games.length; i++){
 }
 
 addGames();
-setTimeout(creategame(),500);
+setTimeout(creategame(),5000);
 
 
 // console.log(games)
