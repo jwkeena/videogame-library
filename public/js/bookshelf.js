@@ -315,7 +315,7 @@ description:""
 },
 ]
 var newgame;
-$( document ).ready(function addGames() {
+function addGames() {
    $.ajax({
       url: "/api/games",
       type: 'GET',
