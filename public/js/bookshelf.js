@@ -1,6 +1,6 @@
 // var games= require(db)
 // replace with reference to database.
-var books = [
+var games = [
 {Title : "Borderlands",
 System_type: "PS4",
 Year_released: 2012,
@@ -314,19 +314,19 @@ box_art:"",
 description:""
 },
 ]
-var games;
-$( document ).ready(function() {
-   $.ajax({
-      url: "/api/games",
-      type: 'GET',
-      success: function (res) {
+// var games;
+// $( document ).ready(function() {
+//    $.ajax({
+//       url: "/api/games",
+//       type: 'GET',
+//       success: function (res) {
   
-         games = res;
-        console.log(res);
-        creategame();
-      }
-    });
-});
+//          games = res;
+//         console.log(res);
+//         creategame();
+//       }
+//     });
+// });
   
          
 
