@@ -391,7 +391,7 @@ async function addGames() {
          games.push(newgame);
          console.log("Updated Array" + games.length)
          if(j===(res.length - 1)){
-             creategame().then($.getScript("bookselect.js",function(){ Games.init()}));;
+             creategame();
          }
        }
        }
@@ -401,7 +401,7 @@ async function addGames() {
 
 
 addGames()
-
+.then($.getScript("bookselect.js",function(){ Games.init()}));
 
 
 // console.log(games)
