@@ -373,7 +373,7 @@ for (var i = 0; i < games.length; i++){
        counter = 0;
    }
    if (i === (games.length -1)){
-    $.getScript("bookselect.js",function(){ setTimeout(Games.init()),10000});
+    $.getScript("bookselect.js",function(){ setTimeout(Games.init()),15000});
    }
 }
 
