@@ -323,8 +323,9 @@ function addGames() {
       success: function (res) {
         for(j=0;j<res.length;j++){
          newgame = res[j];
-        // console.log(newgame);
+        console.log("Loop" + j + newgame);
         games.push(newgame);
+        console.log("Updated Array" + games)
       }
       }
     
@@ -391,7 +392,8 @@ for (var i = 0; i < games.length; i++){
 }
 }
 
-$(addGames().then(creategame()))
+addGames();
+creategame();
 
 
 // console.log(games)
