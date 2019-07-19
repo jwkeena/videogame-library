@@ -400,7 +400,9 @@ async function addGames() {
  }
 
 
-addGames().then(creategame());
+addGames()
+.then(creategame())
+.then($.getScript("bookselect.js",function(){ Games.init()}));
 
 
 // console.log(games)
