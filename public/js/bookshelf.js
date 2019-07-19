@@ -315,22 +315,6 @@ description:""
 },
 ]
 var newgame;
-
-function addGames() {
-   $.ajax({
-      url: "/api/games",
-      type: 'GET',
-      success: function (res) {
-        for(j=0;j<res.length;j++){
-         newgame = res[j];
-        console.log("Loop: " + j + " " + newgame.title);
-        games.push(newgame);
-        console.log("Updated Array" + games.length)
-      }
-      }
-    
-});
-}
          
 
 var game;
@@ -392,8 +376,25 @@ for (var i = 0; i < games.length; i++){
 }
 }
 
+
+function addGames() {
+    $.ajax({
+       url: "/api/games",
+       type: 'GET',
+       success: function (res) {
+         for(j=0;j<res.length;j++){
+          newgame = res[j];
+         console.log("Loop: " + j + " " + newgame.title);
+         games.push(newgame);
+         console.log("Updated Array" + games.length)
+       }
+       }
+     
+ }).then(creategame());
+ }
+
+ 
 addGames();
-setTimeout(creategame(),10000);
 
 
 // console.log(games)
