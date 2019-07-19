@@ -328,7 +328,7 @@ var topa;
 var bottom;
 var counter;
 
-function creategame(){
+async function creategame(){
 game;
 front;
 cover;
@@ -380,7 +380,7 @@ for (var i = 0; i < games.length; i++){
 }
 
 
-function addGames() {
+async function addGames() {
     $.ajax({
        url: "/api/games",
        type: 'GET',
@@ -390,9 +390,9 @@ function addGames() {
          console.log("Loop: " + j + " " + newgame.title);
          games.push(newgame);
          console.log("Updated Array" + games.length)
-         if(j===(res.length - 1)){
-             creategame();
-         }
+        //  if(j===(res.length - 1)){
+        //      creategame();
+        //  }
        }
        }
      
@@ -400,7 +400,7 @@ function addGames() {
  }
 
 
-addGames();
+addGames().then(creategame());
 
 
 // console.log(games)
