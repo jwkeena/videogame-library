@@ -14,7 +14,7 @@ var Games = (function() {
 		console.log("applying 3D!")
 		debugger;
 		// $games.each( function( i ) 
-		for(i=0;i<$games.length;i++)
+		for(i=0;i<4;i++)
 		{
 			
 			console.log("Made it")
