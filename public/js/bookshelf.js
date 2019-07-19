@@ -323,7 +323,7 @@ $( document ).ready(function() {
   
          games = res;
         console.log(res);
-        creategame();
+        // creategame();
       }
     });
 });
@@ -389,7 +389,7 @@ for (var i = 0; i < games.length; i++){
 }
 }
 
-// creategame()
+creategame()
 
 
 

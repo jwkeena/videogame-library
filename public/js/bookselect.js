@@ -1,5 +1,5 @@
 var Games = (function() {
-	console.log("Init Me")
+	// console.log("Init Me")
 	var transEndEventNames = {
 			'WebkitTransition' : 'webkitTransitionEnd',
 			'MozTransition' : 'transitionend',
@@ -11,7 +11,7 @@ var Games = (function() {
 		$games = $( '#bk-list > li > div.bk-game' ), gamesCount = 13, currentgame = -1, counter = 0; 
 	
 	function init() {
-		console.log("applying 3D!")
+		// console.log("applying 3D!")
 		
 		$games.each( async function( i ) 
 		// for(i=0;i<4;i++)
