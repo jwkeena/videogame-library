@@ -313,9 +313,6 @@ giant_bomb_ID:"",
 box_art:"",
 description:""
 },
-
-
-
 ]
 var games;
 $( document ).ready(function() {
@@ -358,7 +355,7 @@ counter = 0;
 
 
 for (var i = 0; i < games.length; i++){
-    game = $('<li class ="' + i + '" style= "z-index:'+i+';"  > <div class="bk-game game' + i + '"></div></li>' )
+    game = $('<li class ="' + i + '"> <div class="bk-game game' + i + '"></div></li>' )
     $("#bk-list").append(game);
 
     front = $(`<div class="bk-front"></div>`)
@@ -391,6 +388,8 @@ for (var i = 0; i < games.length; i++){
    }
 }
 }
+
+creategame()
 
 
 
