@@ -358,7 +358,7 @@ counter = 0;
 
 
 for (var i = 0; i < games.length; i++){
-    game = $('<li class ="' + i + '" style= "zindex: '+i+'"  > <div class="bk-game game' + i + '"></div></li>' )
+    game = $('<li class ="' + i + '" style= "zindex:'+i+';"  > <div class="bk-game game' + i + '"></div></li>' )
     $("#bk-list").append(game);
 
     front = $(`<div class="bk-front"></div>`)
