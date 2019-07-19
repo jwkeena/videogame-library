@@ -12,6 +12,7 @@ var Games = (function() {
 	
 	function init() {
 		console.log("applying 3D!")
+		console.log("games" + $games)
 		$games.each( function( i ) {
 			
 			var $game = $( this ),
@@ -23,15 +24,15 @@ var Games = (function() {
 			// if (counter === 13){
 			// 	counter = 0;
 			// }
-
-			if( i < gamesCount / 2 ) {
+			// console.log(gamesCount)
+			if( i < (gamesCount / 2) ) {
 				console.log("Z-index!")
-				$parent.css( 'z-index', i ).data( 'stackval', i );
+				$parent.css( 'zindex', i).data( 'stackval', i );
 				// counter ++;
 			
 			}
 			else {
-				$parent.css( 'z-index', gamesCount - 1 - i ).data( 'stackval', gamesCount - 1 - i );
+				$parent.css( 'zindex', gamesCount - 1 - i ).data( 'stackval', gamesCount - 1 - i );
 				// counter ++;	
 			}
 
@@ -96,7 +97,7 @@ var Games = (function() {
 		
 		$game.data( 'opened', false ).removeClass( 'bk-viewinside' ).on( transEndEventName, function(e) {
 			$( this ).off( transEndEventName ).removeClass( 'bk-outside' );
-			$parent.css( 'z-index', $parent.data( 'stackval' ) );
+			$parent.css( 'zindex', $parent.data( 'stackval' ) );
 		} );
 
 	}
