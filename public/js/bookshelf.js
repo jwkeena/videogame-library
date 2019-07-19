@@ -1,7 +1,7 @@
 // var games= require(db)
 // replace with reference to database.
 var games = [
-{title : "Borderlands",
+{title: "Borderlands",
 system_type: "PS4",
 Year_released: 2012,
 is_Physical: true,
@@ -13,7 +13,7 @@ giant_bomb_ID:"",
 box_art:"",
 description:"This is a Game about Shooting Guns and Looting Loot"
 },
-{title : "Bioshock",
+{title: "Bioshock",
 system_type: "PS4",
 Year_released: 2012,
 is_Physical: true,
@@ -25,7 +25,7 @@ giant_bomb_ID:"",
 box_art:"",
 description:""
 },
-{title : "The Legend of Zelda",
+{title: "The Legend of Zelda",
 system_type: "PS4",
 Year_released: 2012,
 is_Physical: true,
