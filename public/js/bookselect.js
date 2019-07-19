@@ -8,7 +8,7 @@ var Games = (function() {
 			'transition' : 'transitionend'
 		}, 
 		transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
-		$games = $( '#bk-list > li > div.bk-game' ), gamesCount = $games.length, currentgame = -1; 
+		$games = $( '#bk-list > li > div.bk-game' ), gamesCount = 13, currentgame = -1, counter = 0; 
 	
 	function init() {
 		console.log("applying 3D!")
@@ -21,19 +21,19 @@ var Games = (function() {
 				$page = $game.children( 'div.bk-page' ),
 				$content = $page.children( 'div.bk-content' ), current = 0;
 			
-			// if (counter === 13){
-			// 	counter = 0;
-			// }
-			// console.log(gamesCount)
+			if (counter === 13){
+				counter = 0;
+			}
+			console.log(gamesCount)
 			if( i < gamesCount / 2 ) {
 				console.log("Z-index!")
 				$parent.css( 'zindex', i).data( 'stackval', i );
-				// counter ++;
+				counter ++;
 			
 			}
 			else {
 				$parent.css( 'zindex', gamesCount - 1 - i ).data( 'stackval', gamesCount - 1 - i );
-				// counter ++;	
+				counter ++;	
 			}
 
 			$game.on( 'click', function() {
