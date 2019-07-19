@@ -315,7 +315,7 @@ description:""
 },
 ]
 var newgame;
-$( document ).ready(function() {
+$( document ).ready(function addGames() {
    $.ajax({
       url: "/api/games",
       type: 'GET',
@@ -390,6 +390,7 @@ for (var i = 0; i < games.length; i++){
 }
 }
 
+addGames()
 creategame()
 
 
