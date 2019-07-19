@@ -12,6 +12,7 @@ var Games = (function() {
 	
 	function init() {
 		console.log("applying 3D!")
+		debugger;
 		// $games.each( function( i ) 
 		for(i=0;i<$games.length;i++)
 		{
