@@ -328,7 +328,7 @@ var topa;
 var bottom;
 var counter;
 
-function creategame(){
+var creGame = function creategame(){
 game;
 front;
 cover;
@@ -387,7 +387,7 @@ function addGames() {
          console.log("Loop: " + j + " " + newgame.title);
          games.push(newgame);
          console.log("Updated Array" + games.length)
-         if(j=(res.length - 1)){
+         if(j===(res.length - 1)){
              creategame();
          }
        }
