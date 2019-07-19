@@ -8,7 +8,7 @@ var Games = (function() {
 			'transition' : 'transitionend'
 		}, 
 		transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
-		$games = $( '#bk-list > li > div.bk-game' ), gamesCount = $games.length, currentgame = 0; 
+		$games = $( '#bk-list > li > div.bk-game' ), gamesCount = $games.length, currentgame = -1; 
 	
 	function init() {
 		console.log("applying 3D!")
@@ -26,7 +26,7 @@ var Games = (function() {
 
 			if( i < gamesCount / 2 ) {
 				console.log("Z-index!")
-				$parent.css( 'zindex', i ).data( 'stackval', i );
+				$parent.css( 'zindex', i+1 ).data( 'stackval', i );
 				// counter ++;
 			
 			}
