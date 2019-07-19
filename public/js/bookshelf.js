@@ -315,6 +315,7 @@ description:""
 },
 ]
 var newgame;
+
 function addGames() {
    $.ajax({
       url: "/api/games",
@@ -329,7 +330,6 @@ function addGames() {
     
 });
 }
-  
          
 
 var game;
