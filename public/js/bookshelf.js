@@ -372,7 +372,9 @@ for (var i = 0; i < games.length; i++){
     $("#bk-list").append("<div class=shelf></div>");
        counter = 0;
    }
-   
+   if (i === (games.length -1)){
+    $.getScript("bookselect.js",function(){ setTimeout(Games.init()),10000});
+   }
 }
 
     
@@ -400,7 +402,7 @@ async function addGames() {
 
 
 addGames()
-.then($.getScript("bookselect.js",function(){ setTimeout(Games.init()),10000}));
+
 
 
 // console.log(games)
