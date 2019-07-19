@@ -5,10 +5,17 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     db.Game.findAll({}).then(function(dbGames) {
       res.json(dbGames);
-      res.sendFile(path.join(__dirname, "bookshelf.html"));
+      res.sendFile(path.join(__dirname, "index.html"));
       });
     });
 
+
+    app.get("/shelf", function(req, res) {
+      db.Game.findAll({}).then(function(dbGames) {
+        res.json(dbGames);
+        res.sendFile(path.join(__dirname, "bookshelf.html"));
+        });
+      });
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {
     db.Game.findOne({ where: { id: req.params.id } }).then(function(dbGame) {

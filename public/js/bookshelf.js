@@ -1,336 +1,322 @@
+
+
 // var games= require(db)
 // replace with reference to database.
-// var games = [
-// {Title : "Borderlands",
-// System_type: "PS4",
-// Year_released: 2012,
-// is_Physical: true,
-// is_beaten: true,
-// personal_rating: 10,
-// notes:"this game is great",
-// api_url:"",
-// giant_bomb_ID:"",
-// box_art:"",
-// description:"This is a Game about Shooting Guns and Looting Loot"
-// },
-// {Title : "Bioshock",
-// System_type: "PS4",
-// Year_released: 2012,
-// is_Physical: true,
-// is_beaten: true,
-// personal_rating: 10,
-// notes:"",
-// api_url:"",
-// giant_bomb_ID:"",
-// box_art:"",
-// description:""
-// },
-// {Title : "The Legend of Zelda",
-// System_type: "PS4",
-// Year_released: 2012,
-// is_Physical: true,
-// is_beaten: true,
-// personal_rating: 10,
-// notes:"",
-// api_url:"",
-// giant_bomb_ID:"",
-// box_art:"",
-// description:""
-// },
-// {Title : "Sonic Adventure",
-// System_type: "PS4",
-// Year_released: 2012,
-// is_Physical: true,
-// is_beaten: true,
-// personal_rating: 10,
-// notes:"",
-// api_url:"",
-// giant_bomb_ID:"",
-// box_art:"",
-// description:""
-// },
-// {Title : "Super Mario Bros.",
-// System_type: "PS4",
-// Year_released: 2012,
-// is_Physical: true,
-// is_beaten: true,
-// personal_rating: 10,
-// notes:"",
-// api_url:"",
-// giant_bomb_ID:"",
-// box_art:"",
-// description:""
-// },
-// {Title : "Minecraft",
-// System_type: "PS4",
-// Year_released: 2012,
-// is_Physical: true,
-// is_beaten: true,
-// personal_rating: 10,
-// notes:"",
-// api_url:"",
-// giant_bomb_ID:"",
-// box_art:"",
-// description:""
-// },
-// {Title : "Dark Souls",
-// System_type: "PS4",
-// Year_released: 2012,
-// is_Physical: true,
-// is_beaten: true,
-// personal_rating: 10,
-// notes:"",
-// api_url:"",
-// giant_bomb_ID:"",
-// box_art:"",
-// description:""
-// },
-// {Title : "Halo",
-// System_type: "PS4",
-// Year_released: 2012,
-// is_Physical: true,
-// is_beaten: true,
-// personal_rating: 10,
-// notes:"",
-// api_url:"",
-// giant_bomb_ID:"",
-// box_art:"",
-// description:""
-// },
-// {Title : "Skyrim",
-// System_type: "PS4",
-// Year_released: 2012,
-// is_Physical: true,
-// is_beaten: true,
-// personal_rating: 10,
-// notes:"",
-// api_url:"",
-// giant_bomb_ID:"",
-// box_art:"",
-// description:""
-// },
-// {Title : "Borderlands",
-// System_type: "PS4",
-// Year_released: 2012,
-// is_Physical: true,
-// is_beaten: true,
-// personal_rating: 10,
-// notes:"",
-// api_url:"",
-// giant_bomb_ID:"",
-// box_art:"",
-// description:""
-// },
-// {Title : "Bioshock",
-// System_type: "PS4",
-// Year_released: 2012,
-// is_Physical: true,
-// is_beaten: true,
-// personal_rating: 10,
-// notes:"",
-// api_url:"",
-// giant_bomb_ID:"",
-// box_art:"",
-// description:""
-// },
-// {Title : "The Legend of Zelda",
-// System_type: "PS4",
-// Year_released: 2012,
-// is_Physical: true,
-// is_beaten: true,
-// personal_rating: 10,
-// notes:"",
-// api_url:"",
-// giant_bomb_ID:"",
-// box_art:"",
-// description:""
-// },
-// {Title : "Sonic Adventure",
-// System_type: "PS4",
-// Year_released: 2012,
-// is_Physical: true,
-// is_beaten: true,
-// personal_rating: 10,
-// notes:"",
-// api_url:"",
-// giant_bomb_ID:"",
-// box_art:"",
-// description:""
-// },
-// {Title : "Super Mario Bros.",
-// System_type: "PS4",
-// Year_released: 2012,
-// is_Physical: true,
-// is_beaten: true,
-// personal_rating: 10,
-// notes:"",
-// api_url:"",
-// giant_bomb_ID:"",
-// box_art:"",
-// description:""
-// },
-// {Title : "Minecraft",
-// System_type: "PS4",
-// Year_released: 2012,
-// is_Physical: true,
-// is_beaten: true,
-// personal_rating: 10,
-// notes:"",
-// api_url:"",
-// giant_bomb_ID:"",
-// box_art:"",
-// description:""
-// },
-// {Title : "Dark Souls",
-// System_type: "PS4",
-// Year_released: 2012,
-// is_Physical: true,
-// is_beaten: true,
-// personal_rating: 10,
-// notes:"",
-// api_url:"",
-// giant_bomb_ID:"",
-// box_art:"",
-// description:""
-// },
-// {Title : "Halo",
-// System_type: "PS4",
-// Year_released: 2012,
-// is_Physical: true,
-// is_beaten: true,
-// personal_rating: 10,
-// notes:"",
-// api_url:"",
-// giant_bomb_ID:"",
-// box_art:"",
-// description:""
-// },
-// {Title : "Skyrim",
-// System_type: "PS4",
-// Year_released: 2012,
-// is_Physical: true,
-// is_beaten: true,
-// personal_rating: 10,
-// notes:"",
-// api_url:"",
-// giant_bomb_ID:"",
-// box_art:"",
-// description:""
-// },
-// {Title : "Borderlands",
-// System_type: "PS4",
-// Year_released: 2012,
-// is_Physical: true,
-// is_beaten: true,
-// personal_rating: 10,
-// notes:"",
-// api_url:"",
-// giant_bomb_ID:"",
-// box_art:"",
-// description:""
-// },
-// {Title : "Bioshock",
-// System_type: "PS4",
-// Year_released: 2012,
-// is_Physical: true,
-// is_beaten: true,
-// personal_rating: 10,
-// notes:"",
-// api_url:"",
-// giant_bomb_ID:"",
-// box_art:"",
-// description:""
-// },
-// {Title : "The Legend of Zelda",
-// System_type: "PS4",
-// Year_released: 2012,
-// is_Physical: true,
-// is_beaten: true,
-// personal_rating: 10,
-// notes:"",
-// api_url:"",
-// giant_bomb_ID:"",
-// box_art:"",
-// description:""
-// },
-// {Title : "Sonic Adventure",
-// System_type: "PS4",
-// Year_released: 2012,
-// is_Physical: true,
-// is_beaten: true,
-// personal_rating: 10,
-// notes:"",
-// api_url:"",
-// giant_bomb_ID:"",
-// box_art:"",
-// description:""
-// },
-// {Title : "Super Mario Bros.",
-// System_type: "PS4",
-// Year_released: 2012,
-// is_Physical: true,
-// is_beaten: true,
-// personal_rating: 10,
-// notes:"",
-// api_url:"",
-// giant_bomb_ID:"",
-// box_art:"",
-// description:""
-// },
-// {Title : "Minecraft",
-// System_type: "PS4",
-// Year_released: 2012,
-// is_Physical: true,
-// is_beaten: true,
-// personal_rating: 10,
-// notes:"",
-// api_url:"",
-// giant_bomb_ID:"",
-// box_art:"",
-// description:""
-// },
-// {Title : "Dark Souls",
-// System_type: "PS4",
-// Year_released: 2012,
-// is_Physical: true,
-// is_beaten: true,
-// personal_rating: 10,
-// notes:"",
-// api_url:"",
-// giant_bomb_ID:"",
-// box_art:"",
-// description:""
-// },
-// {Title : "Halo",
-// System_type: "PS4",
-// Year_released: 2012,
-// is_Physical: true,
-// is_beaten: true,
-// personal_rating: 10,
-// notes:"",
-// api_url:"",
-// giant_bomb_ID:"",
-// box_art:"",
-// description:""
-// },
-
-
-
-// ]
-var games;
-$( document ).ready(function() {
-   $.ajax({
-      url: "/api/games",
-      type: 'GET',
-      success: function (res) {
-  
-         games = res;
-        console.log(res);
-        creategame();
-      }
-    });
-});
-  
+var games = [
+{title: "Borderlands",
+system_type: "PS4",
+Year_released: 2012,
+is_Physical: true,
+is_beaten: true,
+personal_rating: 10,
+notes:"this game is great",
+api_url:"",
+giant_bomb_ID:"",
+box_art:"",
+description:"This is a Game about Shooting Guns and Looting Loot"
+},
+{title: "Bioshock",
+system_type: "PS4",
+Year_released: 2012,
+is_Physical: true,
+is_beaten: true,
+personal_rating: 10,
+notes:"",
+api_url:"",
+giant_bomb_ID:"",
+box_art:"",
+description:""
+},
+{title: "The Legend of Zelda",
+system_type: "PS4",
+Year_released: 2012,
+is_Physical: true,
+is_beaten: true,
+personal_rating: 10,
+notes:"",
+api_url:"",
+giant_bomb_ID:"",
+box_art:"",
+description:""
+},
+{title : "Sonic Adventure",
+system_type: "PS4",
+Year_released: 2012,
+is_Physical: true,
+is_beaten: true,
+personal_rating: 10,
+notes:"",
+api_url:"",
+giant_bomb_ID:"",
+box_art:"",
+description:""
+},
+{title : "Super Mario Bros.",
+system_type: "PS4",
+Year_released: 2012,
+is_Physical: true,
+is_beaten: true,
+personal_rating: 10,
+notes:"",
+api_url:"",
+giant_bomb_ID:"",
+box_art:"",
+description:""
+},
+{title : "Minecraft",
+system_type: "PS4",
+Year_released: 2012,
+is_Physical: true,
+is_beaten: true,
+personal_rating: 10,
+notes:"",
+api_url:"",
+giant_bomb_ID:"",
+box_art:"",
+description:""
+},
+{title : "Dark Souls",
+system_type: "PS4",
+Year_released: 2012,
+is_Physical: true,
+is_beaten: true,
+personal_rating: 10,
+notes:"",
+api_url:"",
+giant_bomb_ID:"",
+box_art:"",
+description:""
+},
+{title : "Halo",
+system_type: "PS4",
+Year_released: 2012,
+is_Physical: true,
+is_beaten: true,
+personal_rating: 10,
+notes:"",
+api_url:"",
+giant_bomb_ID:"",
+box_art:"",
+description:""
+},
+{title : "Skyrim",
+system_type: "PS4",
+Year_released: 2012,
+is_Physical: true,
+is_beaten: true,
+personal_rating: 10,
+notes:"",
+api_url:"",
+giant_bomb_ID:"",
+box_art:"",
+description:""
+},
+{title : "Borderlands",
+system_type: "PS4",
+Year_released: 2012,
+is_Physical: true,
+is_beaten: true,
+personal_rating: 10,
+notes:"",
+api_url:"",
+giant_bomb_ID:"",
+box_art:"",
+description:""
+},
+{title : "Bioshock",
+system_type: "PS4",
+Year_released: 2012,
+is_Physical: true,
+is_beaten: true,
+personal_rating: 10,
+notes:"",
+api_url:"",
+giant_bomb_ID:"",
+box_art:"",
+description:""
+},
+{title : "The Legend of Zelda",
+system_type: "PS4",
+Year_released: 2012,
+is_Physical: true,
+is_beaten: true,
+personal_rating: 10,
+notes:"",
+api_url:"",
+giant_bomb_ID:"",
+box_art:"",
+description:""
+},
+{title : "Sonic Adventure",
+system_type: "PS4",
+Year_released: 2012,
+is_Physical: true,
+is_beaten: true,
+personal_rating: 10,
+notes:"",
+api_url:"",
+giant_bomb_ID:"",
+box_art:"",
+description:""
+},
+{title : "Super Mario Bros.",
+system_type: "PS4",
+Year_released: 2012,
+is_Physical: true,
+is_beaten: true,
+personal_rating: 10,
+notes:"",
+api_url:"",
+giant_bomb_ID:"",
+box_art:"",
+description:""
+},
+{title : "Minecraft",
+system_type: "PS4",
+Year_released: 2012,
+is_Physical: true,
+is_beaten: true,
+personal_rating: 10,
+notes:"",
+api_url:"",
+giant_bomb_ID:"",
+box_art:"",
+description:""
+},
+{title : "Dark Souls",
+system_type: "PS4",
+Year_released: 2012,
+is_Physical: true,
+is_beaten: true,
+personal_rating: 10,
+notes:"",
+api_url:"",
+giant_bomb_ID:"",
+box_art:"",
+description:""
+},
+{title : "Halo",
+system_type: "PS4",
+Year_released: 2012,
+is_Physical: true,
+is_beaten: true,
+personal_rating: 10,
+notes:"",
+api_url:"",
+giant_bomb_ID:"",
+box_art:"",
+description:""
+},
+{title : "Skyrim",
+system_type: "PS4",
+Year_released: 2012,
+is_Physical: true,
+is_beaten: true,
+personal_rating: 10,
+notes:"",
+api_url:"",
+giant_bomb_ID:"",
+box_art:"",
+description:""
+},
+{title : "Borderlands",
+system_type: "PS4",
+Year_released: 2012,
+is_Physical: true,
+is_beaten: true,
+personal_rating: 10,
+notes:"",
+api_url:"",
+giant_bomb_ID:"",
+box_art:"",
+description:""
+},
+{title : "Bioshock",
+system_type: "PS4",
+Year_released: 2012,
+is_Physical: true,
+is_beaten: true,
+personal_rating: 10,
+notes:"",
+api_url:"",
+giant_bomb_ID:"",
+box_art:"",
+description:""
+},
+{title : "The Legend of Zelda",
+system_type: "PS4",
+Year_released: 2012,
+is_Physical: true,
+is_beaten: true,
+personal_rating: 10,
+notes:"",
+api_url:"",
+giant_bomb_ID:"",
+box_art:"",
+description:""
+},
+{title : "Sonic Adventure",
+system_type: "PS4",
+Year_released: 2012,
+is_Physical: true,
+is_beaten: true,
+personal_rating: 10,
+notes:"",
+api_url:"",
+giant_bomb_ID:"",
+box_art:"",
+description:""
+},
+{title : "Super Mario Bros.",
+system_type: "PS4",
+Year_released: 2012,
+is_Physical: true,
+is_beaten: true,
+personal_rating: 10,
+notes:"",
+api_url:"",
+giant_bomb_ID:"",
+box_art:"",
+description:""
+},
+{title : "Minecraft",
+system_type: "PS4",
+Year_released: 2012,
+is_Physical: true,
+is_beaten: true,
+personal_rating: 10,
+notes:"",
+api_url:"",
+giant_bomb_ID:"",
+box_art:"",
+description:""
+},
+{title : "Dark Souls",
+system_type: "PS4",
+Year_released: 2012,
+is_Physical: true,
+is_beaten: true,
+personal_rating: 10,
+notes:"",
+api_url:"",
+giant_bomb_ID:"",
+box_art:"",
+description:""
+},
+{title : "Halo",
+system_type: "PS4",
+Year_released: 2012,
+is_Physical: true,
+is_beaten: true,
+personal_rating: 10,
+notes:"",
+api_url:"",
+giant_bomb_ID:"",
+box_art:"",
+description:""
+},
+]
+var newgame;
          
 
 var game;
@@ -344,6 +330,10 @@ var topa;
 var bottom;
 var counter;
 
+const sleep = (milliseconds) => {
+    return new Promise(resolve => setTimeout(resolve, milliseconds))
+  }
+  
 function creategame(){
 game;
 front;
@@ -356,9 +346,9 @@ topa;
 bottom;
 counter = 0;
 
-
+console.log("This Should be logged Last")
 for (var i = 0; i < games.length; i++){
-    game = $('<li class =' + i + '> <div class="bk-game game' + i + '"></div></li>' )
+    game = $('<li class ="' + i + '"> <div class="bk-game game' + i + '"></div></li>' )
     $("#bk-list").append(game);
 
     front = $(`<div class="bk-front"></div>`)
@@ -389,8 +379,42 @@ for (var i = 0; i < games.length; i++){
     $("#bk-list").append("<div class=shelf></div>");
        counter = 0;
    }
+   if (i === (games.length -1)){
+    sleep().then(
+    $.getScript("bookselect.js",function(){(Games.init())})
+    )}
 }
+
+    
 }
+
+
+async function addGames() {
+    $.ajax({
+       url: "/api/games",
+       type: 'GET',
+       success: function (res) {
+         for(j=0;j<res.length;j++){
+          newgame = res[j];
+         console.log("Loop: " + j + " " + newgame.title);
+         games.push(newgame);
+         console.log("Updated Array" + games.length)
+         if(j===(res.length - 1)){
+             creategame();
+         }
+       }
+       }
+     
+ })
+ }
+
+
+addGames()
+
+
+
+// console.log(games)
+// creategame()
 
 
 

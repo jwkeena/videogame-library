@@ -1,3 +1,5 @@
+
+
 var Games = (function() {
 	console.log("Init Me")
 	var transEndEventNames = {
@@ -8,32 +10,34 @@ var Games = (function() {
 			'transition' : 'transitionend'
 		}, 
 		transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
-		$games = $( '#bk-list > li > div.bk-game' ), gamesCount = $games.length, currentgame = -1; 
+		$games = $( '#bk-list > li > div.bk-game' ), gamesCount = 13, currentgame = -1, counter = 0; 
 	
 	function init() {
 		console.log("applying 3D!")
-		console.log("games" + $games)
-		$games.each( function( i ) {
-			
+		
+		$games.each( function( i ) 
+		// for(i=0;i<4;i++)
+		{
+			console.log("Made it")
 			var $game = $( this ),
 				$other = $games.not( $game ),
 				$parent = $game.parent(),
 				$page = $game.children( 'div.bk-page' ),
 				$content = $page.children( 'div.bk-content' ), current = 0;
 			
-			// if (counter === 13){
-			// 	counter = 0;
-			// }
+			if (counter === 13){
+				counter = 0;
+			}
 			// console.log(gamesCount)
-			if( i < (gamesCount / 2) ) {
-				console.log("Z-index!")
-				$parent.css( 'zindex', i).data( 'stackval', i );
-				// counter ++;
+			if( counter < gamesCount / 2 ) {
+				// console.log("Z-index!")
+				$parent.css( 'z-index', counter).attr( 'data-stackval', counter );
+				counter ++;
 			
 			}
 			else {
-				$parent.css( 'zindex', gamesCount - 1 - i ).data( 'stackval', gamesCount - 1 - i );
-				// counter ++;	
+				$parent.css( 'z-index', gamesCount - 1 - counter ).attr( 'data-stackval', gamesCount - 1 - counter );
+				counter ++;	
 			}
 
 			$game.on( 'click', function() {
@@ -97,7 +101,7 @@ var Games = (function() {
 		
 		$game.data( 'opened', false ).removeClass( 'bk-viewinside' ).on( transEndEventName, function(e) {
 			$( this ).off( transEndEventName ).removeClass( 'bk-outside' );
-			$parent.css( 'zindex', $parent.data( 'stackval' ) );
+			$parent.css( 'z-index', $parent.attr( 'data-stackval' ) );
 		} );
 
 	}
