@@ -314,19 +314,20 @@ box_art:"",
 description:""
 },
 ]
-// var games;
-// $( document ).ready(function() {
-//    $.ajax({
-//       url: "/api/games",
-//       type: 'GET',
-//       success: function (res) {
-  
-//          games = res;
-//         console.log(res);
-//         creategame();
-//       }
-//     });
-// });
+var newgame;
+$( document ).ready(function() {
+   $.ajax({
+      url: "/api/games",
+      type: 'GET',
+      success: function (res) {
+        for(j=0;j<res.length;j++){
+         newgame = res[j];
+        console.log(res[j]);
+        games.push(newgame);
+      }
+      }
+    });
+});
   
          
 
