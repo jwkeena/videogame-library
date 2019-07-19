@@ -324,7 +324,7 @@ $( document ).ready(function() {
       type: 'GET',
       success: function (res) {
   
-         games = res;
+         books = res;
         console.log(res);
         creategame();
       }
