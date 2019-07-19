@@ -8,7 +8,7 @@ var Games = (function() {
 			'transition' : 'transitionend'
 		}, 
 		transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
-		$games = $( '#bk-list > li > div.bk-game' ), gamesCount = $games.length, currentgame = -1; 
+		$games = $( '#bk-list > li > div.bk-game' ), gamesCount = $games.length, currentgame = 0; 
 	
 	function init() {
 		console.log("applying 3D!")
