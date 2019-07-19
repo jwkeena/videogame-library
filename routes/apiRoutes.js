@@ -1,6 +1,6 @@
 const db = require("../models");
 
-module.exports = function (app) {
+module.exports = function (app, apiKey) {
   // Get all games in database
   app.get("/api/games", function (req, res) {
     db.Game.findAll({}).then(function (dbGames) {
@@ -8,6 +8,7 @@ module.exports = function (app) {
     });
   });
 
+  
   // Add new game
   app.post("/api/games", function (req, res) {
     db.Game.create({

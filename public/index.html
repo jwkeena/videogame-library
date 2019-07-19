@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html>
 
 <head>
     <meta charset="utf-8">
@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap Links: jQuery and Popper Dependencies first -->
-    <!-- Can't use slim build of jQuery since it doesn't have .ajax calls -->
+    <!-- Can"t use slim build of jQuery since it doesn"t have .ajax calls -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -32,7 +32,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./styles/styles.css">
     <link rel="stylesheet" type="text/css" href="./styles/default.css" />
-    <link rel='stylesheet' type="text/css" href='./styles/bookshelfStyles.css'>
+    <link rel="stylesheet" type="text/css" href="./styles/bookshelfStyles.css">
 
     <script src="./js/modernizr.custom.js"></script>
 </head>
@@ -41,54 +41,99 @@
 
     <div class="container">
 
-        <header class="clearfix">
-            <h1>Game Library</h1>
-            <nav class="codrops-demos">
-                <a href="index.html">New Submission</a>
-            </nav>
+        <header>
+
+            <div class="row">
+                <div class="col-md">
+                    <h1>GAME LIBRARY</h1>
+                </div>
+                <div class="col-md">
+                </div>
+                <div class="col-md">
+
+                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+
+                        <li class="nav-item">
+                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home"
+                                role="tab" aria-controls="pills-home" aria-selected="true">add by title</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile"
+                                role="tab" aria-controls="pills-profile" aria-selected="false">add by barcode</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact"
+                                role="tab" aria-controls="pills-contact" aria-selected="false">test</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </header>
+
+
         <div class="main">
+            <div class="tab-content" id="pills-tabContent">
+
+                <!-- Area 1: Link to Add by Title Modal -->
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                </div>
+
+                <!-- Area 2: Add by Barcode -->
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6">
+                            <!-- Barcode scanner via https://a.kabachnik.info/a-javascript-barcode-reader-with-bootstrap-3-and-quaggajs.html -->
+                            <div class="input-group">
+                                <button class="btn btn-default" type="button" data-toggle="modal"
+                                    data-target="#livestream_scanner"><i class="fa fa-barcode"></i></button>
+
+                                <input id="scanner_input" onkeypress="javascript:return isNumber(event)"
+                                    class="form-control" placeholder="Click the button to scan an EAN..." type="text" />
+                                <span class="input-group-btn"></span>
+
+                                <button id="search-barcode" class="btn btn-default" type="button"><i
+                                        class="fa fa-search"></i></button>
+                            </div><!-- /input-group -->
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+                </div>
+
+                <!-- Area 3: Test -->
+                <div class="tab-pane fade align-content-center" id="pills-contact" role="tabpanel"
+                    aria-labelledby="pills-contact-tab">
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="card">
+                                <div class="card-body">
+                                    <input type="text" id="search">
+                                    <button id="search-button">Search</button>
+                                    <div id="results">Click the desired result to add it to the database.</div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md">
+                            <div class="card">
+                                <div class="card-body">
+                                    <button id="library-button">Display database in JSON</button>
+                                    <div id="database-display">Click the desired entry to remove it from the database.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
             <ul id="bk-list" class="bk-list clearfix">
 
             </ul>
 
         </div>
 
-        <h1>Virtual Backlog</h1>
-        <textarea id="search"></textarea>
-        <br><br>
-        <button id="search-button">Search</button>
-
-        <h3>Top 5 Search Results: &lt;&lt;Click the desired one to add it to the database &gt;&gt;</h3>
-        <div id="results"></div>
-
-        <br>
-        <br>
-
-        <button id="library-button">Display whole database</button>
-        <br>
-        <h3>Database Display: &lt;&lt;Click the desired entry to remove it from the database &gt;&gt;</h3>
-        <div id="database-display"></div>
-
-        <br><br>
-        <h3>Barcode Scanner</h3>
-        <!-- Barcode scanner via https://a.kabachnik.info/a-javascript-barcode-reader-with-bootstrap-3-and-quaggajs.html -->
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="input-group">
-                    <input id="scanner_input" onkeypress="javascript:return isNumber(event)" class="form-control"
-                        placeholder="Click the button to scan an EAN..." type="text" />
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" data-toggle="modal"
-                            data-target="#livestream_scanner">
-                            <i class="fa fa-barcode"></i>
-                        </button>
-                        <button id="search-barcode" class="btn btn-default" type="button"><i
-                                class="fa fa-search"></i></button>
-                    </span>
-                </div><!-- /input-group -->
-            </div><!-- /.col-lg-6 -->
-        </div><!-- /.row -->
         <div class="modal" id="livestream_scanner">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -114,28 +159,28 @@
         </div><!-- /.modal -->
     </div>
 
-     <!-- Footer -->
-     <footer class="page-footer font-small blue">
+    <!-- Footer -->
+    <footer class="page-footer font-small blue">
 
-            <!-- Copyright -->
-            <div class="footer-copyright text-center py-3">CSS Inspired by
-                <a href="http://tympanus.net/codrops/?p=13406">this article</a>
-                |
-                Video game info from the <a target="_blank" href="https://www.giantbomb.com/"> <img style="height: 25px"
-                        src="assets/giantbomblogo.png"></a> API
-            </div>
-            <!-- Copyright -->
-    
-        </footer>
-        <!-- Footer -->
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">CSS Inspired by
+            <a href="http://tympanus.net/codrops/?p=13406">this article</a>
+            |
+            Video game info from the <a target="_blank" href="https://www.giantbomb.com/"> <img style="height: 25px"
+                    src="assets/giantbomblogo.png"></a> API
+        </div>
+        <!-- Copyright -->
 
-    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script> -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    </footer>
+    <!-- Footer -->
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> -->
     <script src="./js/bookshelf.js"></script>
     <script src="./js/bookselect.js"></script>
     <script src="./js/index.js"></script>
     <!-- <script>$(document).ready(function() {Games.init();});</script> -->
-    
+
 </body>
 
 
