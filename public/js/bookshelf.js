@@ -325,10 +325,6 @@ function addGames() {
          newgame = res[j];
         // console.log(newgame);
         games.push(newgame);
-        if(j>=res.length){
-            console.log("The array should be longer" + games)
-            creategame();
-        }
       }
       }
     
