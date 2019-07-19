@@ -392,11 +392,15 @@
 .bk-front:after {
 	background-color: black;
 }
-.bk-cover {
-	background-image: url(../images/3.jpg);	
+.bk-cover {	
 	background-repeat: no-repeat;
 	background-size: 100%;
 	/* background-position: 100% 95%; */
+}
+
+.bk-cover-back{
+	background-repeat: no-repeat;
+	background-size: 100%;
 }
 
 .bk-cover h2 {
