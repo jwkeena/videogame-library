@@ -30,12 +30,12 @@ var Games = (function() {
 			// console.log(gamesCount)
 			if( i < gamesCount / 2 ) {
 				// console.log("Z-index!")
-				$parent.css( 'z-index', i).attr( 'data-stackval', i );
+				$parent.css( 'z-index', counter).attr( 'data-stackval', counter );
 				counter ++;
 			
 			}
 			else {
-				$parent.css( 'z-index', gamesCount - 1 - i ).attr( 'data-stackval', gamesCount - 1 - i );
+				$parent.css( 'z-index', gamesCount - 1 - counter ).attr( 'data-stackval', gamesCount - 1 - counter );
 				counter ++;	
 			}
 
