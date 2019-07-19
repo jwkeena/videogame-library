@@ -19,11 +19,6 @@ function giantBombApiCall(gameName) {
   });
 };
 
-$("#main-search-button").on("click", function () {
-  let gameName = $("#search").val().trim();
-  giantBombApiCall(gameName);
-})
-
 function printResultsInTestDiv(response) {
   $("#results").empty();
   let newGame = {};
@@ -67,6 +62,99 @@ function printResultsInTestDiv(response) {
   };
 };
 
+let searchResults = [];
+
+function processSearch(response) {
+  console.log(response);
+  
+  // Extract relevant information from giant bomb api
+  for (let i = 0; i < response.length; i++) {
+    let res = response[i];
+    let title = res.name;
+    let year_released = res.expected_release_year;
+    let api_url = res.api_detail_url;
+    let box_art = res.image.medium_url;
+    let description = res.deck;
+    let giant_bomb_ID = res.guid;
+    
+    let newGame = {
+      title,
+      year_released,
+      api_url,
+      box_art,
+      description,
+      giant_bomb_ID
+    }
+    
+    let possiblePlatforms = [];
+    for (let j = 0; j < res.platforms.length; j++) {
+      possiblePlatforms.push(res.platforms[j].name);
+    }
+    newGame.possiblePlatforms = possiblePlatforms;
+    searchResults.push(newGame);
+  }
+  console.log(searchResults);
+
+  // Print the results to the modal table
+
+  // EMPTY TABLE!!
+
+  for (let i=0; i<searchResults.length; i++) {
+
+   let tr = $("<tr>");
+   
+   let th = $("<th>");
+   th.attr("scope", "row");
+   th.text(i + 1);
+   tr.append(th);
+
+   let td1 = $("<td>");
+   let img = $("<img>");
+   img.attr("src", searchResults[i].box_art);
+   img.css("height", "100px");
+   td1.append(img);
+   tr.append(td1);
+
+   let td2 = $("<td>");
+   td2.text(searchResults[i].title);
+   tr.append(td2);
+
+   let td3 = $("<td>");
+   let button = $("<button>");
+   button.addClass("btn btn-primary btn-sm");
+   button.text("select");
+   td3.append(button);
+   tr.append(td3);
+
+   $("#main-results table tbody").append(tr);
+   
+
+  }
+
+  // Print the possible consoles to the modal
+}
+
+async function giantBombThenProcessSearch(gameName) {
+  const response = await giantBombApiCall(gameName);
+  processSearch(response);
+}
+
+// Event listeners for main search button
+$("#main-search-button").on("click", function () {
+  let gameName = $("#title").val().trim();
+  $("#title").val("");
+  giantBombThenProcessSearch(gameName);
+});
+
+document.getElementById("title").onkeydown = function (e) {
+  if (e.keyCode == 13) {
+    let gameName = $("#title").val().trim();
+    $("#title").val("");
+    giantBombThenProcessSearch(gameName);
+  }
+};
+
+// Event listener for test search button
 $("#test-search-button").on("click", function () {
   let gameName = $("#search").val().trim();
   giantBombApiCall(gameName);
@@ -81,7 +169,7 @@ function isNumber(evt) {
   return true;
 };
 
-// Grabs typed barcode
+// Grabs typed barcode if manually typed
 let barcode;
 $("#scanner_input").on("keyup", function () {
   let number = $(this).val();
@@ -100,6 +188,7 @@ $("#scanner_input").on("keyup", function () {
   }
 });
 
+// Event listener for searching barcode api
 $("#search-barcode").on("click", function () {
   if (!barcode) {
     console.log("there is no barcode to search")
@@ -122,7 +211,6 @@ function searchBarcodeApi(barcode) {
   });
 };
 
-
 async function barcodeThenGiantBomb(barcode) {
   const response = await searchBarcodeApi(barcode);
   gameName = response.items[0].title;
@@ -131,7 +219,6 @@ async function barcodeThenGiantBomb(barcode) {
 
 // Get references to page elements
 let newGame = {};
-
 $(document.body).on("click", ".newgame", function () {
 
   let giantBombURL = $(this).attr("data-api-url");
@@ -139,7 +226,6 @@ $(document.body).on("click", ".newgame", function () {
     url: "https://cors-anywhere.herokuapp.com/" + giantBombURL + "?api_key=0f5a567565f80ed0d9a43e0862315a17c315dc22&format=json",
     method: "GET"
   }).then(function (response) {
-    console.log(response.results);
 
     let res = response.results;
     let title = res.name;
@@ -164,8 +250,6 @@ $(document.body).on("click", ".newgame", function () {
       description
     };
 
-    console.log(newGame);
-
     $.ajax("/api/games", {
       type: "POST",
       data: newGame
@@ -175,9 +259,9 @@ $(document.body).on("click", ".newgame", function () {
       }
     );
   });
+});
 
-})
-
+// Event listener for test display of database
 $("#library-button").on("click", function () {
 
   $("#database-display").empty();
@@ -198,7 +282,6 @@ $("#library-button").on("click", function () {
   });
 
   $(document.body).on("click", ".delete", function () {
-
     let id = $(this).attr("data-giant-bomb-id");
     $.ajax({
       url: "/api/games/" + id,
@@ -207,7 +290,7 @@ $("#library-button").on("click", function () {
         console.log("Game deleted from database")
         document.getElementById("library-button").click();
       }
-    })
-  })
+    });
+  });
 
 });
