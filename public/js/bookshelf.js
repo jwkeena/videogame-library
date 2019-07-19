@@ -2,7 +2,7 @@
 
 // var games= require(db)
 // replace with reference to database.
-// var games = [
+var games = []
 // {title: "Borderlands",
 // system_type: "PS4",
 // Year_released: 2012,
@@ -330,9 +330,6 @@ var topa;
 var bottom;
 var counter;
 
-const sleep = (milliseconds) => {
-    return new Promise(resolve => setTimeout(resolve, milliseconds))
-  }
   
 function creategame(){
 game;
@@ -380,9 +377,8 @@ for (var i = 0; i < games.length; i++){
        counter = 0;
    }
    if (i === (games.length -1)){
-    sleep().then(
     $.getScript("bookselect.js",function(){(Games.init())})
-    )}
+    }
 }
 
     

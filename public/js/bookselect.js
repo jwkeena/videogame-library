@@ -11,9 +11,10 @@ var Games = (function() {
 		}, 
 		transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
 		$games = $( '#bk-list > li > div.bk-game' ), gamesCount = 13, currentgame = -1, counter = 0; 
-	
-	function init() {
-		console.log("applying 3D!")
+		
+		function init() {
+			$games = $( '#bk-list > li > div.bk-game' ), gamesCount = 13, currentgame = -1, counter = 0; 
+			console.log("applying 3D!")
 		
 		$games.each( function( i ) 
 		// for(i=0;i<4;i++)
@@ -110,4 +111,4 @@ var Games = (function() {
 
 })();
 
-Games.init();
+// Games.init();
