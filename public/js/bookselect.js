@@ -12,9 +12,9 @@ var Games = (function() {
 	
 	function init() {
 		console.log("applying 3D!")
-		console.log($games)
 		$games.each( function( i ) {
 			
+			console.log("Made it")
 			var $game = $( this ),
 				$other = $games.not( $game ),
 				$parent = $game.parent(),
@@ -25,7 +25,7 @@ var Games = (function() {
 			// 	counter = 0;
 			// }
 			// console.log(gamesCount)
-			if( i < (gamesCount / 2) ) {
+			if( i < gamesCount / 2 ) {
 				console.log("Z-index!")
 				$parent.css( 'zindex', i).data( 'stackval', i );
 				// counter ++;
