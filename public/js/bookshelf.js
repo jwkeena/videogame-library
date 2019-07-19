@@ -391,7 +391,7 @@ for (var i = 0; i < games.length; i++){
 }
 }
 
-$(addGames()).then(creategame())
+$(addGames().then(creategame()))
 
 
 // console.log(games)
