@@ -24,9 +24,9 @@ var Games = (function() {
 			// 	counter = 0;
 			// }
 
-			if( i < gamesCount / 2 ) {
+			if( i < (gamesCount / 2) ) {
 				console.log("Z-index!")
-				$parent.css( 'zindex', i+1 ).data( 'stackval', i );
+				$parent.css( 'zindex', i).data( 'stackval', i );
 				// counter ++;
 			
 			}
