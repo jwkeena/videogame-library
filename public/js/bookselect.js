@@ -30,12 +30,12 @@ var Games = (function() {
 			console.log(gamesCount)
 			if( i < gamesCount / 2 ) {
 				console.log("Z-index!")
-				$parent.css( 'zindex', i).attr( 'data-stackval', i );
+				$parent.css( 'z-index', i).attr( 'data-stackval', i );
 				counter ++;
 			
 			}
 			else {
-				$parent.css( 'zindex', gamesCount - 1 - i ).attr( 'data-stackval', gamesCount - 1 - i );
+				$parent.css( 'z-index', gamesCount - 1 - i ).attr( 'data-stackval', gamesCount - 1 - i );
 				counter ++;	
 			}
 
@@ -100,7 +100,7 @@ var Games = (function() {
 		
 		$game.data( 'opened', false ).removeClass( 'bk-viewinside' ).on( transEndEventName, function(e) {
 			$( this ).off( transEndEventName ).removeClass( 'bk-outside' );
-			$parent.css( 'zindex', $parent.data( 'stackval' ) );
+			$parent.css( 'z-index', $parent.attr( 'data-stackval' ) );
 		} );
 
 	}
