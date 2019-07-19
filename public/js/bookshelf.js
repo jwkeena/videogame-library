@@ -328,7 +328,7 @@ var topa;
 var bottom;
 var counter;
 
-async function creategame(){
+function creategame(){
 game;
 front;
 cover;
