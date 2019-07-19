@@ -325,10 +325,13 @@ function addGames() {
          newgame = res[j];
         // console.log(newgame);
         games.push(newgame);
+        if(j>=res.length){
+            creategame();
+        }
       }
       }
     
-}).then(creategame());
+});
 }
          
 
@@ -392,6 +395,8 @@ for (var i = 0; i < games.length; i++){
 }
 
 $(addGames())
+
+
 // console.log(games)
 // creategame()
 
