@@ -323,9 +323,9 @@ function addGames() {
       success: function (res) {
         for(j=0;j<res.length;j++){
          newgame = res[j];
-        console.log("Loop" + j + newgame);
+        console.log("Loop: " + j + " " + newgame.title);
         games.push(newgame);
-        console.log("Updated Array" + games)
+        console.log("Updated Array" + games.length)
       }
       }
     
@@ -356,7 +356,7 @@ topa;
 bottom;
 counter = 0;
 
-
+console.log("This Should be logged Last")
 for (var i = 0; i < games.length; i++){
     game = $('<li class ="' + i + '"> <div class="bk-game game' + i + '"></div></li>' )
     $("#bk-list").append(game);
