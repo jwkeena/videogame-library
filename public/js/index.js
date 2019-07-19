@@ -1,4 +1,3 @@
-let newGame;
 function giantBombApiCall(gameName) {
 
   return new Promise(resolve => {
@@ -15,6 +14,7 @@ function giantBombApiCall(gameName) {
 
       resolve(response.results);
 
+      let newGame = {};
       for (let i = 0; i < response.results.length; i++) {
 
         // Restricting search to first result
