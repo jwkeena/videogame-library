@@ -398,6 +398,7 @@ function addGames() {
 
 
 addGames();
+creategames();
 
 
 // console.log(games)
