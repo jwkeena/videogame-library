@@ -389,7 +389,7 @@ for (var i = 0; i < games.length; i++){
 }
 }
 
-// creategame()
+creategame()
 
 
 
