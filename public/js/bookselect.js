@@ -105,4 +105,4 @@ var Games = (function() {
 
 })();
 
-// Games.init();
+Games.init();
