@@ -1,0 +1,329 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input[type=text],
+select,
+textarea, fieldset {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+/*  *//*  *//*  *//*  *//*  *//* Yes Or NO  *//*  *//*  *//*  *//*  *//*  *//*  *//*  */   
+
+.onoff {
+margin-left: 8px;
+display: -moz-inline-stack;
+display: inline-block;
+vertical-align: middle;
+*vertical-align: auto;
+zoom: 1;
+*display: inline;
+position: relative;
+cursor: pointer;
+width: 55px;
+height: 30px;
+line-height: 30px;
+font-size: 14px;
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.onoff label {
+position: absolute;
+top: 0px;
+left: 0px;
+width: 100%;
+height: 100%;
+cursor: pointer;
+background: #cd3c3c;
+border-radius: 5px;
+font-weight: bold;
+color: #FFF;
+-webkit-transition: background 0.3s, text-indent 0.3s;
+-moz-transition: background 0.3s, text-indent 0.3s;
+-o-transition: background 0.3s, text-indent 0.3s;
+transition: background 0.3s, text-indent 0.3s;
+text-indent: 27px;
+-webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4) inset;
+-moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4) inset;
+box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4) inset;
+}
+.onoff label:after {
+content: 'NO';
+display: block;
+position: absolute;
+top: 0px;
+left: 0px;
+width: 100%;
+font-size: 12px;
+color: #591717;
+text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.35);
+z-index: 1;
+}
+.onoff label:before {
+content: '';
+width: 15px;
+height: 24px;
+border-radius: 3px;
+background: #FFF;
+position: absolute;
+z-index: 2;
+top: 3px;
+left: 3px;
+display: block;
+-webkit-transition: left 0.3s;
+-moz-transition: left 0.3s;
+-o-transition: left 0.3s;
+transition: left 0.3s;
+-webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+-moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+}
+.onoff input:checked + label {
+background: #378b2c;
+text-indent: 8px;
+}
+.onoff input:checked + label:after {
+content: 'YES';
+color: #091707;
+}
+.onoff input:checked + label:before {
+left: 37px;
+}
+/*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  */
+
+
+/*  *//*  *//*  *//*  *//*  *//* Star Rating  *//*  *//*  *//*  *//*  *//*  *//*  *//*  */
+.rating {    
+display: flex;
+font-size: 50px;
+position: relative;
+}
+
+.rating label {
+position: absolute;
+top: 0;
+left: 0;
+height: 100%;
+cursor: pointer;
+}
+
+.rating label:last-child {
+position: static;
+}
+
+.rating label:nth-child(1) {
+z-index: 10;
+}
+
+.rating label:nth-child(2) {
+z-index: 9;
+}
+
+.rating label:nth-child(3) {
+z-index: 8;
+}
+
+.rating label:nth-child(4) {
+z-index: 7;
+}
+
+.rating label:nth-child(5) {
+z-index: 6;
+}
+
+.rating label:nth-child(6) {
+z-index: 5;
+}
+
+.rating label:nth-child(7) {
+z-index: 4;
+}
+
+.rating label:nth-child(8) {
+z-index: 3;
+}
+
+.rating label:nth-child(9) {
+z-index: 2;
+}
+
+.rating label:nth-child(10) {
+z-index: 1;
+}
+
+
+.rating label input {
+position: absolute;
+top: 0;
+left: 0;
+opacity: 0;
+}
+
+.rating label .icon {
+float: left;
+color: transparent;
+}
+
+.rating label:last-child .icon {
+color: #000;
+}
+
+.rating:not(:hover) label input:checked ~ .icon,
+.rating:hover label:hover input ~ .icon {
+color: #09f;
+}
+
+.rating label input:focus:not(:checked) ~ .icon:last-child {
+color: #000;
+text-shadow: 0 0 5px #09f;
+}
+/*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  */
+/* Set a style for all buttons */
+button {
+background-color: #4CAF50;
+color: white;
+padding: 14px 20px;
+margin: 8px 0;
+border: none;
+cursor: pointer;
+width: 100%;
+}
+
+button:hover {
+opacity: 0.8;
+}
+
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+width: auto;
+padding: 10px 18px;
+background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+text-align: center;
+margin: 24px 0 12px 0;
+position: relative;
+}
+
+img.avatar {
+width: 15%;
+border-radius: 50%;
+}
+
+
+/* The Modal (background) */
+.modal {
+display: none; /* Hidden by default */
+position: fixed; /* Stay in place */
+z-index: 1; /* Sit on top */
+left: 0;
+top: 0;
+width: 100%; /* Full width */
+height: 100%; /* Full height */
+overflow: auto; /* Enable scroll if needed */
+background-color: rgb(0,0,0); /* Fallback color */
+background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+background-color: #fefefe;
+margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+border: 1px solid #888;
+width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+position: absolute;
+right: 25px;
+top: 0;
+color: #000;
+font-size: 35px;
+font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+color: red;
+cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+-webkit-animation: animatezoom 0.6s;
+animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+from {-webkit-transform: scale(0)} 
+to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+from {transform: scale(0)} 
+to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+span.psw {
+display: block;
+float: none;
+}
+
+
+/* Barcode scanner */
+#interactive.viewport {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  text-align: center;
+}
+
+#interactive.viewport>canvas,
+#interactive.viewport>video {
+  max-width: 100%;
+  width: 100%;
+}
+
+canvas.drawing,
+canvas.drawingBuffer {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
