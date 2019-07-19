@@ -1,20 +1,27 @@
-function giantBombApiCall(gameName) {
+// Controls add-game-modal via the pill in the header
+function openGameModal() {
+  document.getElementById("game-modal-button").click();
+}
 
+function giantBombApiCall(gameName) {
   return new Promise(resolve => {
     let giantBombURL;
-
     console.log("game to be searched: " + gameName);
     giantBombURL = "https://cors-anywhere.herokuapp.com/https://www.giantbomb.com/api/search?api_key=0f5a567565f80ed0d9a43e0862315a17c315dc22&format=json&query=" + gameName + "&resources=game&limit=5"
-
     $.ajax({
       url: giantBombURL,
       method: "GET"
     }).then(function (response) {
       console.log(response.results);
-
+      printResultsInTestDiv(response);
       resolve(response.results);
+    });
+  })
+}
 
-      let newGame = {};
+function printResultsInTestDiv(response) {
+  $("#results").empty();
+  let newGame = {};
       for (let i = 0; i < response.results.length; i++) {
 
         // Restricting search to first result
@@ -53,8 +60,6 @@ function giantBombApiCall(gameName) {
         p.addClass("newgame");
         $("#results").append(p);
       }
-    });
-  })
 }
 
 $("#search-button").on("click", function () {
@@ -95,7 +100,7 @@ $("#search-barcode").on("click", function () {
     console.log("there is no barcode to search")
   } else {
     console.log("barcode to be searched ", barcode);
-    asyncTest(barcode);
+    barcodeThenGiantBomb(barcode);
   }
 })
 
@@ -113,149 +118,11 @@ function searchBarcodeApi(barcode) {
 };
 
 
-async function asyncTest(barcode) {
+async function barcodeThenGiantBomb(barcode) {
   const response = await searchBarcodeApi(barcode);
   gameName = response.items[0].title;
   giantBombApiCall(gameName);
 }
-
-$(function () {
-  // Create the QuaggaJS config object for the live stream
-  var liveStreamConfig = {
-    inputStream: {
-      type: "LiveStream",
-      constraints: {
-        width: {
-          min: 640
-        },
-        height: {
-          min: 480
-        },
-        aspectRatio: {
-          min: 1,
-          max: 100
-        },
-        facingMode: "environment" // or "user" for the front camera
-      }
-    },
-    locator: {
-      patchSize: "medium",
-      halfSample: true
-    },
-    numOfWorkers: (navigator.hardwareConcurrency ? navigator.hardwareConcurrency : 4),
-    decoder: {
-      "readers": [{
-        "format": "ean_reader",
-        "config": {}
-      }]
-    },
-    locate: true
-  };
-  // The fallback to the file API requires a different inputStream option. 
-  // The rest is the same 
-  var fileConfig = $.extend({},
-    liveStreamConfig, {
-      inputStream: {
-        size: 800
-      }
-    }
-  );
-  // Start the live stream scanner when the modal opens
-  $('#livestream_scanner').on('shown.bs.modal', function (e) {
-    Quagga.init(
-      liveStreamConfig,
-      function (err) {
-        if (err) {
-          $('#livestream_scanner .modal-body .error').html(
-            '<div class="alert alert-danger"><strong><i class="fa fa-exclamation-triangle"></i> ' +
-            err.name + '</strong>: ' + err.message + '</div>');
-          Quagga.stop();
-          return;
-        }
-        Quagga.start();
-      }
-    );
-  });
-
-  // Make sure, QuaggaJS draws frames an lines around possible 
-  // barcodes on the live stream
-  Quagga.onProcessed(function (result) {
-    var drawingCtx = Quagga.canvas.ctx.overlay,
-      drawingCanvas = Quagga.canvas.dom.overlay;
-
-    if (result) {
-      if (result.boxes) {
-        drawingCtx.clearRect(0, 0, parseInt(drawingCanvas.getAttribute("width")), parseInt(
-          drawingCanvas.getAttribute("height")));
-        result.boxes.filter(function (box) {
-          return box !== result.box;
-        }).forEach(function (box) {
-          Quagga.ImageDebug.drawPath(box, {
-            x: 0,
-            y: 1
-          }, drawingCtx, {
-            color: "green",
-            lineWidth: 2
-          });
-        });
-      }
-
-      if (result.box) {
-        Quagga.ImageDebug.drawPath(result.box, {
-          x: 0,
-          y: 1
-        }, drawingCtx, {
-          color: "#00F",
-          lineWidth: 2
-        });
-      }
-
-      if (result.codeResult && result.codeResult.code) {
-        Quagga.ImageDebug.drawPath(result.line, {
-          x: 'x',
-          y: 'y'
-        }, drawingCtx, {
-          color: 'red',
-          lineWidth: 3
-        });
-      }
-    }
-  });
-
-  // Once a barcode had been read successfully, stop quagga and 
-  // close the modal after a second to let the user notice where 
-  // the barcode had actually been found.
-  Quagga.onDetected(function (result) {
-    if (result.codeResult.code) {
-      $('#scanner_input').val(result.codeResult.code);
-      barcode = result.codeResult.code;
-      Quagga.stop();
-      setTimeout(function () {
-        $('#livestream_scanner').modal('hide');
-      }, 1000);
-    }
-  });
-
-  // Stop quagga in any case, when the modal is closed
-  $('#livestream_scanner').on('hide.bs.modal', function () {
-    if (Quagga) {
-      Quagga.stop();
-    }
-  });
-
-  // Call Quagga.decodeSingle() for every file selected in the 
-  // file input
-  $("#livestream_scanner input:file").on("change", function (e) {
-    if (e.target.files && e.target.files.length) {
-      Quagga.decodeSingle($.extend({}, fileConfig, {
-        src: URL.createObjectURL(e.target.files[0])
-      }), function (result) {
-        alert(result.codeResult.code);
-        $('#livestream_scanner').modal('hide');
-      });
-    }
-  });
-});
 
 // Get references to page elements
 let newGame = {};

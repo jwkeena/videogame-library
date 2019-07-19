@@ -53,7 +53,7 @@
 
                     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 
-                        <li class="nav-item">
+                        <li class="nav-item" onclick="openGameModal();">
                             <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home"
                                 role="tab" aria-controls="pills-home" aria-selected="true">add by title</a>
                         </li>
@@ -138,6 +138,33 @@
 
         </div>
 
+        <!-- Add a game modal -->
+        <!-- Hidden button -->
+        <button id="game-modal-button" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal"
+            data-target="#add-game-modal">
+        </button>
+
+        <div class="modal fade" id="add-game-modal" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Barcode scanner modal -->
         <div class="modal" id="livestream_scanner">
             <div class="modal-dialog">
@@ -188,6 +215,7 @@
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> -->
+    <script src="./js/barcode.js"></script>
     <script src="./js/bookshelf.js"></script>
     <script src="./js/bookselect.js"></script>
     <script src="./js/index.js"></script>
