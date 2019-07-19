@@ -1,3 +1,23 @@
+body {
+	font-family: 'Press Start 2P', cursive !important;
+}
+
+/* body {
+	background: url("../styles/images/pixel-library.jpg") no-repeat center center fixed !important; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+} */
+
+h1 {
+	font-size: 25px !important;
+}
+
+.nav-pills, .tab-content, .main {
+	font-size: 10px !important;
+}
+
 /* General Demo Style */
 /* @import url(http://fonts.googleapis.com/css?family=Lato:400,700);
 
@@ -162,4 +182,26 @@ a {
 	background: transparent url(./images/shelf.png) no-repeat center center;
 	display: relative;
 	position: relative;
+}
+
+/* Barcode scanner */
+#interactive.viewport {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    text-align: center;
+}
+
+#interactive.viewport>canvas,
+#interactive.viewport>video {
+    max-width: 100%;
+    width: 100%;
+}
+
+canvas.drawing,
+canvas.drawingBuffer {
+    position: absolute;
+    left: 0;
+    top: 0;
 }

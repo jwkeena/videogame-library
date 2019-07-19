@@ -30,14 +30,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="./styles/styles.css">
-    <link rel="stylesheet" type="text/css" href="./styles/default.css" />
+    <link rel="stylesheet" href="./styles/default.css">
     <link rel="stylesheet" type="text/css" href="./styles/bookshelfStyles.css">
+
+    <!-- Added link to external font-->
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 
     <script src="./js/modernizr.custom.js"></script>
 </head>
 
 <body>
+
+    <style>
+        
+        </style>
 
     <div class="container">
 
@@ -45,11 +51,11 @@
 
             <div class="row">
                 <div class="col-md">
-                    <h1>GAME LIBRARY</h1>
+                    <h1>VIDEOGAME LIBRARY</h1>
                 </div>
                 <div class="col-md">
                 </div>
-                <div class="col-md">
+                <div class="col-md-6">
 
                     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 
@@ -88,9 +94,9 @@
                                 <button class="btn btn-default" type="button" data-toggle="modal"
                                     data-target="#livestream_scanner"><i class="fa fa-barcode"></i></button>
 
-                                <input id="scanner_input" onkeypress="javascript:return isNumber(event)"
+                                <input id="scanner_input" style="font-size: 10px;" onkeypress="javascript:return isNumber(event)"
                                     class="form-control"
-                                    placeholder="       &lt;--Click the button to scan, then search -->" type="text" />
+                                    placeholder="&lt;-- click to scan, then search -->" type="text" />
                                 <span class="input-group-btn"></span>
 
                                 <button id="search-barcode" class="btn btn-default" type="button"><i
@@ -107,19 +113,19 @@
                     <div class="row">
                         <div class="col-md">
                             <div class="card">
-                                <div class="card-body">
+                                <div class="card-body" style="font-family: Consolas,monaco,monospace; font-size: 14px;">
                                     <input type="text" id="search">
                                     <button id="search-button">Search</button>
-                                    <div id="results">Click the desired result to add it to the database.</div>
+                                    <div id="results" >Click a result to add it to the database.</div>
                                 </div>
                             </div>
 
                         </div>
                         <div class="col-md">
                             <div class="card">
-                                <div class="card-body">
+                                <div class="card-body" style="font-family: Consolas,monaco,monospace; font-size: 14px;">
                                     <button id="library-button">Display database in JSON</button>
-                                    <div id="database-display">Click the desired entry to remove it from the database.
+                                    <div id="database-display">Click an entry to remove it from the database.
                                     </div>
                                 </div>
                             </div>
@@ -148,16 +154,16 @@
             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                    <div class="modal-header" >
+                        <h5 class="modal-title"style="font-size: 12px" id="exampleModalLongTitle">Add a game</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
-                        ...
+                    <div class="modal-body" style="font-size: 12px">
+                        MODAL STUFF!
                     </div>
-                    <div class="modal-footer">
+                    <div class="modal-footer" style="font-size: 12px">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-primary">Save changes</button>
                     </div>
@@ -180,19 +186,19 @@
                     </div>
 
                     <div class="container">
-                        <p class="text-center">Scanner not working? Try brighter lighting, or upload a picture instead:
+                        <p class="text-center" style="font-size: 10px;">Scanner not working? Try brighter lighting, or upload a picture instead:
                         </p>
 
                         <div class="row">
-                            <div class="col-md-4"></div>
+                            <div class="col-md-2"></div>
                             <div class="col-md-4">
-                                <input type="file" accept="image/*;capture=camera" capture="camera" class="hidden" />
+                                <input type="file" style="font-size: 10px;" accept="image/*;capture=camera" capture="camera" class="hidden" />
                             </div>
                         </div>
                     </div>
 
                     <br>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    <button type="button" style="font-size: 10px;" class="btn btn-primary" data-dismiss="modal">Close</button>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
@@ -202,7 +208,7 @@
     <footer class="page-footer font-small blue">
 
         <!-- Copyright -->
-        <div class="footer-copyright text-center py-3">CSS Inspired by
+        <div class="footer-copyright text-center py-3" style="font-size: 10px;">CSS Inspired by
             <a href="http://tympanus.net/codrops/?p=13406">this article</a>
             |
             Video game info from the <a target="_blank" href="https://www.giantbomb.com/"> <img style="height: 25px"
