@@ -17,7 +17,7 @@ var Games = (function() {
 		// for(i=0;i<4;i++)
 		{
 			
-			console.log("Made it")
+			// console.log("Made it")
 			var $game = $( this ),
 				$other = $games.not( $game ),
 				$parent = $game.parent(),
@@ -27,7 +27,7 @@ var Games = (function() {
 			if (counter === 13){
 				counter = 0;
 			}
-			console.log(gamesCount)
+			// console.log(gamesCount)
 			if( i < gamesCount / 2 ) {
 				console.log("Z-index!")
 				$parent.css( 'z-index', i).attr( 'data-stackval', i );
