@@ -387,13 +387,16 @@ function addGames() {
          console.log("Loop: " + j + " " + newgame.title);
          games.push(newgame);
          console.log("Updated Array" + games.length)
+         if(j=(res.length - 1)){
+             creategame();
+         }
        }
        }
      
- }).then(creategame());
+ })
  }
 
- 
+
 addGames();
 
 
