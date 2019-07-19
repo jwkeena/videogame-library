@@ -13,7 +13,7 @@ var Games = (function() {
 	function init() {
 		console.log("applying 3D!")
 		
-		$games.each( function( i ) 
+		$games.each( async function( i ) 
 		// for(i=0;i<4;i++)
 		{
 			
