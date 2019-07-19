@@ -1,6 +1,6 @@
 // var games= require(db)
 // replace with reference to database.
-var games = [
+var books = [
 {Title : "Borderlands",
 System_type: "PS4",
 Year_released: 2012,
@@ -317,14 +317,14 @@ description:""
 
 
 ]
-var books;
+var games;
 $( document ).ready(function() {
    $.ajax({
       url: "/api/games",
       type: 'GET',
       success: function (res) {
   
-         books = res;
+         games = res;
         console.log(res);
         creategame();
       }
