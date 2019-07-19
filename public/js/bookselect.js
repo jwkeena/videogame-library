@@ -17,7 +17,7 @@ var Games = (function() {
 		// for(i=0;i<4;i++)
 		{
 			
-			// console.log("Made it")
+			console.log("Made it")
 			var $game = $( this ),
 				$other = $games.not( $game ),
 				$parent = $game.parent(),
