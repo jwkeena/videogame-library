@@ -327,7 +327,7 @@ var left;
 var topa;
 var bottom;
 var counter;
-
+debugger;
 function creategame(){
 game;
 front;
