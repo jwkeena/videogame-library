@@ -323,7 +323,7 @@ function addGames() {
       success: function (res) {
         for(j=0;j<res.length;j++){
          newgame = res[j];
-        console.log(newgame);
+        // console.log(newgame);
         games.push(newgame);
       }
       }
@@ -391,7 +391,7 @@ for (var i = 0; i < games.length; i++){
 }
 }
 
-addGames()
+$(addGames())
 // console.log(games)
 // creategame()
 
