@@ -375,7 +375,7 @@ for (var i = 0; i < games.length; i++){
    }
 }
 $.getScript("bookselect.js",function(){
-    Games.init()
+    Dames.init()
     });
 
     
