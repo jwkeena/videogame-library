@@ -18,6 +18,7 @@ function shelveGame() {
           is_beaten: false,
           is_physical: true
         }
+        location.reload();
       }
     );
   };
