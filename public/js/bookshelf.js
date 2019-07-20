@@ -358,7 +358,7 @@ for (var i = 0; i < games.length; i++){
     
     page = $(`<div class="bk-page">`)
     $(page).append('<div class="bk-content bk-content-current"><p>' + games[i].description + '</p></div>')
-    $(page).append('<div class="bk-content "><p>Physical Copy: ' + games[i].is_Physical + "</p><p> Beat the Game? " + games[i].is_beaten + "</p><p>Personal Rating: " + games[i].personal_rating + '/10 </p></div>')
+    $(page).append('<div class="bk-content "><p>Physical Copy: ' + games[i].is_physical + "</p><p> Beat the Game? " + games[i].is_beaten + "</p><p>Personal Rating: " + games[i].personal_rating + '/10 </p></div>')
     $(page).append('<div class="bk-content "><p>' + games[i].notes + '</p></div></div>')
     
     back = $(`<div class="bk-back">`)
