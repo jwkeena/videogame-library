@@ -173,6 +173,7 @@ async function giantBombThenProcessSearch(gameName) {
 
 // Event listeners for main search button
 $("#main-search-button").on("click", function () {
+  $("#platform-choice").empty();
   gameChoice = {
     is_beaten: false,
     is_physical: true
@@ -184,6 +185,11 @@ $("#main-search-button").on("click", function () {
 
 document.getElementById("title").onkeydown = function (e) {
   if (e.keyCode == 13) {
+    $("#platform-choice").empty();
+    gameChoice = {
+      is_beaten: false,
+      is_physical: true
+    }
     let gameName = $("#title").val().trim();
     $("#title").val("");
     giantBombThenProcessSearch(gameName);
@@ -299,6 +305,7 @@ $("#search-barcode").on("click", function () {
   } else {
     console.log("barcode to be searched ", barcode);
     barcodeThenGiantBomb(barcode);
+    document.getElementById("game-modal-button").click();
   }
 })
 
@@ -318,7 +325,7 @@ function searchBarcodeApi(barcode) {
 async function barcodeThenGiantBomb(barcode) {
   const response = await searchBarcodeApi(barcode);
   gameName = response.items[0].title;
-  giantBombApiCall(gameName);
+  giantBombThenProcessSearch(gameName);
 }
 
 // Get references to page elements
