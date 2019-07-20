@@ -2,6 +2,12 @@ body {
 	font-family: 'Press Start 2P', cursive !important;
 }
 
+.badge{
+	margin: .3em;
+	padding: 5px;
+	cursor: pointer;
+  }
+
 /* body {
 	background: url("../styles/images/pixel-library.jpg") no-repeat center center fixed !important; 
 	-webkit-background-size: cover;
@@ -211,19 +217,9 @@ canvas.drawingBuffer {
 	top: 0;
 }
 
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
+
 /* Yes Or NO  */
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
+
 
 .onoff {
 	margin-left: 8px;
@@ -249,7 +245,7 @@ canvas.drawingBuffer {
 	width: 100%;
 	height: 100%;
 	cursor: pointer;
-	background: #cd3c3c;
+	background: rgb(66,139,202);
 	border-radius: 5px;
 	font-weight: bold;
 	color: #FFF;
@@ -310,35 +306,7 @@ canvas.drawingBuffer {
 	left: 37px;
 }
 
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
-
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
 /* Star Rating  */
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
 .rating {
 	display: flex;
 	font-size: 50px;
@@ -416,10 +384,10 @@ canvas.drawingBuffer {
 
 .rating:not(:hover) label input:checked~.icon,
 .rating:hover label:hover input~.icon {
-	color: #09f;
+	color: #378b2c;
 }
 
 .rating label input:focus:not(:checked)~.icon:last-child {
 	color: #000;
-	text-shadow: 0 0 5px #09f;
+	text-shadow: 0 0 5px #378b2c;
 }

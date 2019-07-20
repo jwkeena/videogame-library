@@ -168,22 +168,28 @@
                         <br>
 
                         <div id="main-results">
-                            <table id="results-table" class="table table-striped table-dark table-hover">
-                                <tbody>
-        
+                            <table  class="table table-striped table-dark table-hover">
+                                <tbody id="results-table">
+                                   
                                 </tbody>
                             </table>
                         </div>
-
                         <hr>
+
+                        <span>Choose a platform: </span>
+                        <div id="platform-choice">
+
+                        </div>
+                        <hr>
+
                         Media type:
-                        <label class="radio-inline"><input type="radio" name="optradio" checked>Physical</label>
-                        <label class="radio-inline"><input type="radio" name="optradio">Digital</label>
+                        <label class="radio-inline"><input type="radio" name="optradio" checked value="true">Physical</label>
+                        <label class="radio-inline"><input type="radio" name="optradio" value="false">Digital</label>
                         <hr>
                         <label for="Yes_No">Have you beaten the game?</label>
                         <fieldset>
-                            <p class="onoff"><input type="checkbox" value="1" id="checkboxID"><label
-                                    for="checkboxID"></label>
+                            <p class="onoff"><input type="checkbox" value="1" id="yes-or-no"><label
+                                    for="yes-or-no"></label>
                             </p>
 
                         </fieldset>
@@ -285,7 +291,7 @@
 
                     </div>
                     <div class="modal-footer" style="font-size: 12px">
-                        <button type="button" class="btn btn-primary btn-sm">shelve</button>
+                        <button id="shelve" type="button" class="btn btn-primary btn-sm">shelve</button>
                     </div>
                 </div>
             </div>

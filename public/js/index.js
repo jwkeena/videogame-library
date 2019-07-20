@@ -1,6 +1,28 @@
+
+let gameChoice = {};
+
+function shelveGame() {
+  $.ajax("/api/games", {
+    type: "POST",
+    data: gameChoice
+  }).then(
+    function () {
+      console.log("New game sent to database");
+      gameChoice = {
+        is_beaten: false,
+        is_physical: true
+      }
+    }
+  );
+}
+
 // Controls add-game-modal via the pill in the header
 function openGameModal() {
   document.getElementById("game-modal-button").click();
+  gameChoice = {
+    is_beaten: false,
+    is_physical: true
+  }
 }
 
 function giantBombApiCall(gameName) {
@@ -12,7 +34,11 @@ function giantBombApiCall(gameName) {
       url: giantBombURL,
       method: "GET"
     }).then(function (response) {
-      console.log(response.results);
+
+      if (response.results.length === 0) {
+        alert("No matching games!");
+      }
+
       printResultsInTestDiv(response);
       resolve(response.results);
     });
@@ -65,8 +91,8 @@ function printResultsInTestDiv(response) {
 let searchResults = [];
 
 function processSearch(response) {
-  console.log(response);
-  
+
+  searchResults = [];
   // Extract relevant information from giant bomb api
   for (let i = 0; i < response.length; i++) {
     let res = response[i];
@@ -76,7 +102,7 @@ function processSearch(response) {
     let box_art = res.image.medium_url;
     let description = res.deck;
     let giant_bomb_ID = res.guid;
-    
+
     let newGame = {
       title,
       year_released,
@@ -85,7 +111,7 @@ function processSearch(response) {
       description,
       giant_bomb_ID
     }
-    
+
     let possiblePlatforms = [];
     for (let j = 0; j < res.platforms.length; j++) {
       possiblePlatforms.push(res.platforms[j].name);
@@ -96,43 +122,42 @@ function processSearch(response) {
   console.log(searchResults);
 
   // Print the results to the modal table
-
-  // EMPTY TABLE!!
-
-  for (let i=0; i<searchResults.length; i++) {
-
-   let tr = $("<tr>");
-   
-   let th = $("<th>");
-   th.attr("scope", "row");
-   th.text(i + 1);
-   tr.append(th);
-
-   let td1 = $("<td>");
-   let img = $("<img>");
-   img.attr("src", searchResults[i].box_art);
-   img.css("height", "100px");
-   td1.append(img);
-   tr.append(td1);
-
-   let td2 = $("<td>");
-   td2.text(searchResults[i].title);
-   tr.append(td2);
-
-   let td3 = $("<td>");
-   let button = $("<button>");
-   button.addClass("btn btn-primary btn-sm");
-   button.text("select");
-   td3.append(button);
-   tr.append(td3);
-
-   $("#main-results table tbody").append(tr);
-   
-
+  // Empty table first
+  for (var i = document.getElementById("results-table").rows.length; i > 0; i--) {
+    document.getElementById("results-table").deleteRow(i - 1);
   }
 
-  // Print the possible consoles to the modal
-}
+  for (let i = 0; i < searchResults.length; i++) {
+
+    let tr = $("<tr>");
+
+    let th = $("<th>");
+    th.attr("scope", "row");
+    th.text(i + 1);
+    tr.append(th);
+
+    let td1 = $("<td>");
+    let img = $("<img>");
+    img.attr("src", searchResults[i].box_art);
+    img.css("height", "100px");
+    td1.append(img);
+    tr.append(td1);
+
+    let td2 = $("<td>");
+    td2.text(searchResults[i].title);
+    tr.append(td2);
+
+    let td3 = $("<td>");
+    let button = $("<button>");
+    button.addClass("btn btn-primary btn-sm choose-game");
+    button.attr("data-game-index", i);
+    button.text("select");
+    td3.append(button);
+    tr.append(td3);
+
+    $("#main-results table tbody").append(tr);
+  };
+};
 
 async function giantBombThenProcessSearch(gameName) {
   const response = await giantBombApiCall(gameName);
@@ -141,6 +166,10 @@ async function giantBombThenProcessSearch(gameName) {
 
 // Event listeners for main search button
 $("#main-search-button").on("click", function () {
+  gameChoice = {
+    is_beaten: false,
+    is_physical: true
+  }
   let gameName = $("#title").val().trim();
   $("#title").val("");
   giantBombThenProcessSearch(gameName);
@@ -154,10 +183,78 @@ document.getElementById("title").onkeydown = function (e) {
   }
 };
 
+// Event listener for select buttons
+$(document.body).on("click", ".choose-game", function () {
+  $("#platform-choice").empty();
+  let index = $(this).attr("data-game-index");
+
+  // Change the game to be stored for posting to the database
+  gameChoice.title = searchResults[index].title
+  gameChoice.year_released = searchResults[index].year_released
+  gameChoice.api_url = searchResults[index].api_url
+  gameChoice.box_art = searchResults[index].box_art
+  gameChoice.description = searchResults[index].description
+  gameChoice.giant_bomb_ID = searchResults[index].giant_bomb_ID
+
+  // Extract and display possible platforms
+  for (let i = 0; i < searchResults[index].possiblePlatforms.length; i++) {
+    let platform = searchResults[index].possiblePlatforms[i];
+    let span = $("<span>");
+    span.text(platform);
+    span.addClass("badge badge-primary platform-option");
+    $("#platform-choice").append(span);
+  };
+});
+
+// Event listener for platform choice
+$(document.body).on("click", ".platform-option", function () {
+  let platform = $(this).text();
+  gameChoice.platform = platform;
+
+  let allPlatformChoices = document.getElementsByClassName("badge-success");
+  for (let i = 0; i < allPlatformChoices.length; i++) {
+    $(allPlatformChoices[i]).toggleClass("badge-success");
+  }
+  $(this).toggleClass("badge-success");
+});
+
 // Event listener for test search button
 $("#test-search-button").on("click", function () {
   let gameName = $("#search").val().trim();
   giantBombApiCall(gameName);
+});
+
+// Event listener for radio buttons
+$(".radio-inline").on("click", function () {
+  var radioValue = $("input[name='optradio']:checked").val();
+  if (radioValue === "true") {
+    gameChoice.is_physical = true;
+  } else {
+    gameChoice.is_physical = false;
+  }
+});
+
+// Event listener for yes/no
+$("#yes-or-no").on("click", function () {
+  let yesOrNo = window.getComputedStyle(document.querySelector(".onoff label"), ":after").getPropertyValue("content");
+  if (yesOrNo === '"YES"') {
+    gameChoice.is_beaten = true;
+  } else {
+    gameChoice.is_beaten = false
+  };
+  console.log(gameChoice);
+});
+
+// Event listener for star radio buttons
+$(".personal-rating").on("click", function () {
+  var radioValue = $(this).val();
+  gameChoice.personal_rating = radioValue;
+});
+
+// Event listener for shelve button
+$("#shelve").on("click", function () {
+  gameChoice.notes = $("#notes").text();
+  shelveGame();
 });
 
 // Validates numbers entered into barcode scanner
