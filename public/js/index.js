@@ -1,20 +1,27 @@
-
 let gameChoice = {};
 
 function shelveGame() {
-  $.ajax("/api/games", {
-    type: "POST",
-    data: gameChoice
-  }).then(
-    function () {
-      console.log("New game sent to database");
-      gameChoice = {
-        is_beaten: false,
-        is_physical: true
+  if (!gameChoice.title ) {
+    alert("Choose a game before shelving.");
+    return;
+  } else if (!gameChoice.platform) {
+    alert("Choose a platform before shelving.");
+    return;
+  } else {
+    $.ajax("/api/games", {
+      type: "POST",
+      data: gameChoice
+    }).then(
+      function () {
+        console.log("New game sent to database");
+        gameChoice = {
+          is_beaten: false,
+          is_physical: true
+        }
       }
-    }
-  );
-}
+    );
+  };
+};
 
 // Controls add-game-modal via the pill in the header
 function openGameModal() {
