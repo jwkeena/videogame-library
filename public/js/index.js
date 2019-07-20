@@ -101,8 +101,8 @@ function printResultsInTestDiv(response) {
 let searchResults = [];
 
 function processSearch(response) {
-
   searchResults = [];
+
   // Extract relevant information from giant bomb api
   for (let i = 0; i < response.length; i++) {
     let res = response[i];
@@ -123,13 +123,12 @@ function processSearch(response) {
     }
 
     let possiblePlatforms = [];
-    for (let j = 0; j < res.platforms.length; j++) {
+    for (let j = 0; j < response[i].platforms.length; j++) {
       possiblePlatforms.push(res.platforms[j].name);
     }
     newGame.possiblePlatforms = possiblePlatforms;
     searchResults.push(newGame);
   }
-  console.log(searchResults);
 
   // Print the results to the modal table
   // Empty table first

@@ -12,7 +12,7 @@ module.exports = function (app, apiKey) {
   app.post("/api/games", function (req, res) {
     db.Game.create({
       title: req.body.title,
-      system_type: req.body.system_type,
+      system_type: req.body.platform,
       year_released: req.body.year_released,
       is_physical: req.body.is_physical,
       is_beaten: req.body.is_beaten,
