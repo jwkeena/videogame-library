@@ -124,7 +124,7 @@ function processSearch(response) {
 
     let possiblePlatforms = [];
     for (let j = 0; j < response[i].platforms.length; j++) {
-      possiblePlatforms.push(res.platforms[j].name);
+      possiblePlatforms.push(res.platforms[j].abbreviation); // Change to .name for full system name
     }
     newGame.possiblePlatforms = possiblePlatforms;
     searchResults.push(newGame);
