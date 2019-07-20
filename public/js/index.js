@@ -8,6 +8,8 @@ function shelveGame() {
     alert("Choose a platform before shelving.");
     return;
   } else {
+    console.log(gameChoice);
+    document.getElementById("close-game-modal-button").click();
     $.ajax("/api/games", {
       type: "POST",
       data: gameChoice
@@ -256,7 +258,6 @@ $("#yes-or-no").on("click", function () {
   } else {
     gameChoice.is_beaten = false
   };
-  console.log(gameChoice);
 });
 
 // Event listener for star radio buttons

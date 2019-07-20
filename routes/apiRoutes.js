@@ -8,7 +8,6 @@ module.exports = function (app, apiKey) {
     });
   });
 
-  
   // Add new game
   app.post("/api/games", function (req, res) {
     db.Game.create({
