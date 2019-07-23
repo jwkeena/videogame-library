@@ -188,11 +188,18 @@ a {
 .shelf {
 	width: 100%;
 	height: 90px;
-	z-index: -1;
+	z-index: 7;
 	margin-top: 370px;
 	background: transparent url(./images/shelf.png) no-repeat center center;
 	display: relative;
 	position: relative;
+	-webkit-perspective: 1800px;
+	perspective: 1800px;
+	-webkit-perspective-origin: 50% 15%;
+	perspective-origin: 50% 15%;
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	
 }
 
 /* Barcode scanner */

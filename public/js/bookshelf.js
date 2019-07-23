@@ -403,6 +403,13 @@ async function addGames() {
  }
 
 addGames()
+
+
+$(window).scroll(function() {
+    var scrollLocation = $(document).scrollTop();   
+    var vanishingPoint = scrollLocation + window.innerHeight / 2;
+    $(".bk-list").css('-webkit-perspective-origin', ' 50% ' + vanishingPoint + 'px');
+})
 // creategame()
 
 
