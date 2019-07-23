@@ -176,7 +176,8 @@ a {
 	height: 90px;
 	z-index: 7;
 	margin-top: 370px;
-	background:url(./images/shelf.png) no-repeat center center;
+	background-color:white;
+	background-image:url(./images/shelf.png) no-repeat center center;
 	display: relative;
 	position: relative;
 	-webkit-perspective: 1800px;
