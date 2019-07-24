@@ -1,7 +1,7 @@
 
 
 var Games = (function() {
-	console.log("Init Me")
+	// console.log("Init Me")
 	var transEndEventNames = {
 			'WebkitTransition' : 'webkitTransitionEnd',
 			'MozTransition' : 'transitionend',
@@ -14,17 +14,15 @@ var Games = (function() {
 		
 		function init() {
 			$games = $( '#bk-list > li > div.bk-game' ), gamesCount = 13, currentgame = -1, counter = 0; 
-			console.log("applying 3D!")
+			// console.log("applying 3D!")
 		
 		$games.each( function( i ) 
-		// for(i=0;i<4;i++)
 		{
-			console.log("Made it")
+			// console.log("Made it")
 			var $game = $( this ),
 				$other = $games.not( $game ),
 				$parent = $game.parent(),
-				$cover = $game.children('div.bk-cover')
-				$front = $game.children('div.bk-front')
+				
 				$page = $game.children( 'div.bk-page' ),
 				$content = $page.children( 'div.bk-content' ), current = 0;
 			
@@ -44,11 +42,9 @@ var Games = (function() {
 			}
 
 			$game.on( 'click', function() {
-				
 				if( currentgame !== -1 && currentgame !== $parent.index() ) {
 					closeCurrent();
 				}
-
 
 				if($game.hasClass('bk-open')){
 					$( this ).removeClass( 'bk-open' ); 
@@ -56,22 +52,20 @@ var Games = (function() {
 				else if($game.hasClass('bk-outside' && 'bk-viewinside')){
 					$( this ).addClass( 'bk-open' ); 
 				}
-				else if( $game.data( 'opened' ) ) {
-					$game.data( 'opened', false ).removeClass( 'bk-viewinside' ).on( transEndEventName, function() {
-						$( this ).off( transEndEventName ).removeClass( 'bk-outside' );
-						$parent.css( 'z-index', $parent.data( 'stackval' ) );
-						currentgame = -1;
-						
-					} );
-				}
+				
 				else {
+
+					
+
 					$game.data( 'opened', true ).addClass( 'bk-outside' ).on( transEndEventName, function() {
 						$( this ).off( transEndEventName ).addClass( 'bk-viewinside' );  
 						$parent.css( 'z-index', gamesCount );
 						currentgame = $parent.index();
+						console.log("Current Game " + currentgame)
 					} );
 					current = 0;
 					$content.removeClass( 'bk-content-current').eq( current ).addClass( 'bk-content-current' );
+					
 				}
 			
 
@@ -101,7 +95,7 @@ var Games = (function() {
 					return false;
 				} );
 				$navClose.on( 'click', function() {
-
+					
 					if( $game.data( 'opened' ) ) {
 						$game.data( 'opened', false ).removeClass( 'bk-viewinside' ).on( transEndEventName, function() {
 							$( this ).off( transEndEventName ).removeClass( 'bk-outside' );
@@ -110,15 +104,7 @@ var Games = (function() {
 							
 						} );
 					}
-					else {
-						$game.data( 'opened', true ).addClass( 'bk-outside' ).on( transEndEventName, function() {
-							$( this ).off( transEndEventName ).addClass( 'bk-viewinside' );  
-							$parent.css( 'z-index', gamesCount );
-							currentgame = $parent.index();
-						} );
-						current = 0;
-						$content.removeClass( 'bk-content-current').eq( current ).addClass( 'bk-content-current' );
-					}
+					
 
 
 			});
@@ -131,12 +117,15 @@ var Games = (function() {
 	}
 
 	function closeCurrent() {
+		console.log("Closing other books")
 
-		var $game = $games.eq( currentgame ),
+		var $game = $games.eq( currentgame),
 			$parent = $game.parent();
-		
+			console.log($game)
+	
+		$game.removeClass('bk-open');
 		$game.data( 'opened', false ).removeClass( 'bk-viewinside' ).on( transEndEventName, function(e) {
-			$( this ).off( transEndEventName ).removeClass( 'bk-outside','bk-open');
+			$( this ).off( transEndEventName ).removeClass( 'bk-outside');
 			$parent.css( 'z-index', $parent.attr( 'data-stackval' ) );
 		} );
 
