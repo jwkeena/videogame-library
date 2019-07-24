@@ -2,7 +2,7 @@
 
 // var games= require(db)
 // replace with reference to database.
-var games = []
+var games = [
 // {title: "Borderlands",
 // system_type: "PS4",
 // Year_released: 2012,
@@ -315,7 +315,7 @@ var games = []
 // box_art:"",
 // description:""
 // },
-// ]
+]
 var newgame;
          
 
@@ -372,7 +372,7 @@ for (var i = 0; i < games.length; i++){
     $(".game"+i).append(front,page,back,right,left,topa,bottom);
    counter ++;
    if (counter === 13){
-    $("#bk-list").append("<div class=shelf></div>");
+    $("#bk-list").append("<div class=shelf><div class=shelfback></div></div>");
        counter = 0;
    }
    if (i === (games.length -1)){

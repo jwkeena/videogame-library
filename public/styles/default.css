@@ -176,8 +176,7 @@ a {
 	height: 90px;
 	z-index: 7;
 	margin-top: 370px;
-	background-color:white;
-	background-image:url(./images/shelf.png) no-repeat center center;
+	background:url(./images/shelf.png) no-repeat center center ;
 	display: relative;
 	position: relative;
 	-webkit-perspective: 1800px;
@@ -187,6 +186,13 @@ a {
 	-webkit-transform-style: preserve-3d;
 	transform-style: preserve-3d;
 	
+}
+
+.shelfback{
+	top:50px;
+	height:40px;
+	background:#f6f6f6;
+	position: relative;
 }
 
 /* Barcode scanner */
